@@ -1,0 +1,431 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 48;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		96D51C061FBAD470006FB5BB /* AMapViewManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 96D51BDE1FBAD46C006FB5BB /* AMapViewManager.m */; };
+		96D51C071FBAD470006FB5BB /* AMapMultiPointManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 96D51BE01FBAD46C006FB5BB /* AMapMultiPointManager.m */; };
+		96D51C081FBAD470006FB5BB /* AMapInfoWindowManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 96D51BE11FBAD46C006FB5BB /* AMapInfoWindowManager.m */; };
+		96D51C091FBAD470006FB5BB /* AMapModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 96D51BE41FBAD46C006FB5BB /* AMapModel.m */; };
+		96D51C0A1FBAD470006FB5BB /* AMapRide.m in Sources */ = {isa = PBXBuildFile; fileRef = 96D51BE51FBAD46C006FB5BB /* AMapRide.m */; };
+		96D51C0B1FBAD470006FB5BB /* AMapInfoWindow.m in Sources */ = {isa = PBXBuildFile; fileRef = 96D51BE71FBAD46C006FB5BB /* AMapInfoWindow.m */; };
+		96D51C0C1FBAD470006FB5BB /* AMapPolygonManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 96D51BE81FBAD46D006FB5BB /* AMapPolygonManager.m */; };
+		96D51C0D1FBAD470006FB5BB /* Coordinate.m in Sources */ = {isa = PBXBuildFile; fileRef = 96D51BEA1FBAD46D006FB5BB /* Coordinate.m */; };
+		96D51C0E1FBAD470006FB5BB /* AMapDriveManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 96D51BEC1FBAD46D006FB5BB /* AMapDriveManager.m */; };
+		96D51C0F1FBAD470006FB5BB /* AMapMarkerManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 96D51BEE1FBAD46D006FB5BB /* AMapMarkerManager.m */; };
+		96D51C101FBAD470006FB5BB /* AMapRideManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 96D51BF01FBAD46D006FB5BB /* AMapRideManager.m */; };
+		96D51C111FBAD470006FB5BB /* AMapCircle.m in Sources */ = {isa = PBXBuildFile; fileRef = 96D51BF11FBAD46D006FB5BB /* AMapCircle.m */; };
+		96D51C121FBAD470006FB5BB /* AMapWalk.m in Sources */ = {isa = PBXBuildFile; fileRef = 96D51BF41FBAD46D006FB5BB /* AMapWalk.m */; };
+		96D51C131FBAD470006FB5BB /* AMapCircleManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 96D51BF51FBAD46D006FB5BB /* AMapCircleManager.m */; };
+		96D51C141FBAD470006FB5BB /* AMapMultiPoint.m in Sources */ = {isa = PBXBuildFile; fileRef = 96D51BF61FBAD46D006FB5BB /* AMapMultiPoint.m */; };
+		96D51C151FBAD470006FB5BB /* AMapPolygon.m in Sources */ = {isa = PBXBuildFile; fileRef = 96D51BF71FBAD46E006FB5BB /* AMapPolygon.m */; };
+		96D51C161FBAD470006FB5BB /* AMapView.m in Sources */ = {isa = PBXBuildFile; fileRef = 96D51BF81FBAD46E006FB5BB /* AMapView.m */; };
+		96D51C171FBAD470006FB5BB /* POISearch.m in Sources */ = {isa = PBXBuildFile; fileRef = 96D51BF91FBAD46E006FB5BB /* POISearch.m */; };
+		96D51C181FBAD470006FB5BB /* AMapUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 96D51BFB1FBAD46E006FB5BB /* AMapUtils.m */; };
+		96D51C191FBAD470006FB5BB /* RNLocation.m in Sources */ = {isa = PBXBuildFile; fileRef = 96D51BFD1FBAD46E006FB5BB /* RNLocation.m */; };
+		96D51C1A1FBAD470006FB5BB /* AMapMarker.m in Sources */ = {isa = PBXBuildFile; fileRef = 96D51BFE1FBAD46F006FB5BB /* AMapMarker.m */; };
+		96D51C1B1FBAD470006FB5BB /* AMapDrive.m in Sources */ = {isa = PBXBuildFile; fileRef = 96D51BFF1FBAD46F006FB5BB /* AMapDrive.m */; };
+		96D51C1C1FBAD470006FB5BB /* AMapPolyline.m in Sources */ = {isa = PBXBuildFile; fileRef = 96D51C011FBAD46F006FB5BB /* AMapPolyline.m */; };
+		96D51C1D1FBAD470006FB5BB /* AMapWalkManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 96D51C021FBAD46F006FB5BB /* AMapWalkManager.m */; };
+		96D51C1E1FBAD470006FB5BB /* RCTConvert+AMapView.m in Sources */ = {isa = PBXBuildFile; fileRef = 96D51C031FBAD46F006FB5BB /* RCTConvert+AMapView.m */; };
+		96D51C1F1FBAD470006FB5BB /* AMapPolylineManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 96D51C051FBAD470006FB5BB /* AMapPolylineManager.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		96D51BCF1FBAD31D006FB5BB /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "include/$(PRODUCT_NAME)";
+			dstSubfolderSpec = 16;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		96D51BD11FBAD31D006FB5BB /* libRNAMap.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libRNAMap.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		96D51BDD1FBAD46C006FB5BB /* AMapRide.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AMapRide.h; sourceTree = "<group>"; };
+		96D51BDE1FBAD46C006FB5BB /* AMapViewManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AMapViewManager.m; sourceTree = "<group>"; };
+		96D51BDF1FBAD46C006FB5BB /* AMapWalk.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AMapWalk.h; sourceTree = "<group>"; };
+		96D51BE01FBAD46C006FB5BB /* AMapMultiPointManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AMapMultiPointManager.m; sourceTree = "<group>"; };
+		96D51BE11FBAD46C006FB5BB /* AMapInfoWindowManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AMapInfoWindowManager.m; sourceTree = "<group>"; };
+		96D51BE21FBAD46C006FB5BB /* AMapModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AMapModel.h; sourceTree = "<group>"; };
+		96D51BE31FBAD46C006FB5BB /* AMapInfoWindow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AMapInfoWindow.h; sourceTree = "<group>"; };
+		96D51BE41FBAD46C006FB5BB /* AMapModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AMapModel.m; sourceTree = "<group>"; };
+		96D51BE51FBAD46C006FB5BB /* AMapRide.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AMapRide.m; sourceTree = "<group>"; };
+		96D51BE61FBAD46C006FB5BB /* Coordinate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Coordinate.h; sourceTree = "<group>"; };
+		96D51BE71FBAD46C006FB5BB /* AMapInfoWindow.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AMapInfoWindow.m; sourceTree = "<group>"; };
+		96D51BE81FBAD46D006FB5BB /* AMapPolygonManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AMapPolygonManager.m; sourceTree = "<group>"; };
+		96D51BE91FBAD46D006FB5BB /* POISearch.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = POISearch.h; sourceTree = "<group>"; };
+		96D51BEA1FBAD46D006FB5BB /* Coordinate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Coordinate.m; sourceTree = "<group>"; };
+		96D51BEB1FBAD46D006FB5BB /* AMapMultiPoint.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AMapMultiPoint.h; sourceTree = "<group>"; };
+		96D51BEC1FBAD46D006FB5BB /* AMapDriveManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AMapDriveManager.m; sourceTree = "<group>"; };
+		96D51BED1FBAD46D006FB5BB /* AMapPolygon.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AMapPolygon.h; sourceTree = "<group>"; };
+		96D51BEE1FBAD46D006FB5BB /* AMapMarkerManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AMapMarkerManager.m; sourceTree = "<group>"; };
+		96D51BEF1FBAD46D006FB5BB /* AMapNavigationManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AMapNavigationManager.h; sourceTree = "<group>"; };
+		96D51BF01FBAD46D006FB5BB /* AMapRideManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AMapRideManager.m; sourceTree = "<group>"; };
+		96D51BF11FBAD46D006FB5BB /* AMapCircle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AMapCircle.m; sourceTree = "<group>"; };
+		96D51BF21FBAD46D006FB5BB /* AMapMarker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AMapMarker.h; sourceTree = "<group>"; };
+		96D51BF31FBAD46D006FB5BB /* AMapDrive.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AMapDrive.h; sourceTree = "<group>"; };
+		96D51BF41FBAD46D006FB5BB /* AMapWalk.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AMapWalk.m; sourceTree = "<group>"; };
+		96D51BF51FBAD46D006FB5BB /* AMapCircleManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AMapCircleManager.m; sourceTree = "<group>"; };
+		96D51BF61FBAD46D006FB5BB /* AMapMultiPoint.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AMapMultiPoint.m; sourceTree = "<group>"; };
+		96D51BF71FBAD46E006FB5BB /* AMapPolygon.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AMapPolygon.m; sourceTree = "<group>"; };
+		96D51BF81FBAD46E006FB5BB /* AMapView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AMapView.m; sourceTree = "<group>"; };
+		96D51BF91FBAD46E006FB5BB /* POISearch.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = POISearch.m; sourceTree = "<group>"; };
+		96D51BFA1FBAD46E006FB5BB /* AMapPolyline.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AMapPolyline.h; sourceTree = "<group>"; };
+		96D51BFB1FBAD46E006FB5BB /* AMapUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AMapUtils.m; sourceTree = "<group>"; };
+		96D51BFC1FBAD46E006FB5BB /* AMapView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AMapView.h; sourceTree = "<group>"; };
+		96D51BFD1FBAD46E006FB5BB /* RNLocation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RNLocation.m; sourceTree = "<group>"; };
+		96D51BFE1FBAD46F006FB5BB /* AMapMarker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AMapMarker.m; sourceTree = "<group>"; };
+		96D51BFF1FBAD46F006FB5BB /* AMapDrive.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AMapDrive.m; sourceTree = "<group>"; };
+		96D51C001FBAD46F006FB5BB /* AMapCircle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AMapCircle.h; sourceTree = "<group>"; };
+		96D51C011FBAD46F006FB5BB /* AMapPolyline.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AMapPolyline.m; sourceTree = "<group>"; };
+		96D51C021FBAD46F006FB5BB /* AMapWalkManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AMapWalkManager.m; sourceTree = "<group>"; };
+		96D51C031FBAD46F006FB5BB /* RCTConvert+AMapView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "RCTConvert+AMapView.m"; sourceTree = "<group>"; };
+		96D51C041FBAD46F006FB5BB /* RNLocation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RNLocation.h; sourceTree = "<group>"; };
+		96D51C051FBAD470006FB5BB /* AMapPolylineManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AMapPolylineManager.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		96D51BCE1FBAD31D006FB5BB /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		96D51BC81FBAD31D006FB5BB = {
+			isa = PBXGroup;
+			children = (
+				96D51BD31FBAD31D006FB5BB /* RNAMap */,
+				96D51BD21FBAD31D006FB5BB /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		96D51BD21FBAD31D006FB5BB /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				96D51BD11FBAD31D006FB5BB /* libRNAMap.a */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		96D51BD31FBAD31D006FB5BB /* RNAMap */ = {
+			isa = PBXGroup;
+			children = (
+				96D51C001FBAD46F006FB5BB /* AMapCircle.h */,
+				96D51BF11FBAD46D006FB5BB /* AMapCircle.m */,
+				96D51BF51FBAD46D006FB5BB /* AMapCircleManager.m */,
+				96D51BF31FBAD46D006FB5BB /* AMapDrive.h */,
+				96D51BFF1FBAD46F006FB5BB /* AMapDrive.m */,
+				96D51BEC1FBAD46D006FB5BB /* AMapDriveManager.m */,
+				96D51BE31FBAD46C006FB5BB /* AMapInfoWindow.h */,
+				96D51BE71FBAD46C006FB5BB /* AMapInfoWindow.m */,
+				96D51BE11FBAD46C006FB5BB /* AMapInfoWindowManager.m */,
+				96D51BF21FBAD46D006FB5BB /* AMapMarker.h */,
+				96D51BFE1FBAD46F006FB5BB /* AMapMarker.m */,
+				96D51BEE1FBAD46D006FB5BB /* AMapMarkerManager.m */,
+				96D51BE21FBAD46C006FB5BB /* AMapModel.h */,
+				96D51BE41FBAD46C006FB5BB /* AMapModel.m */,
+				96D51BEB1FBAD46D006FB5BB /* AMapMultiPoint.h */,
+				96D51BF61FBAD46D006FB5BB /* AMapMultiPoint.m */,
+				96D51BE01FBAD46C006FB5BB /* AMapMultiPointManager.m */,
+				96D51BEF1FBAD46D006FB5BB /* AMapNavigationManager.h */,
+				96D51BED1FBAD46D006FB5BB /* AMapPolygon.h */,
+				96D51BF71FBAD46E006FB5BB /* AMapPolygon.m */,
+				96D51BE81FBAD46D006FB5BB /* AMapPolygonManager.m */,
+				96D51BFA1FBAD46E006FB5BB /* AMapPolyline.h */,
+				96D51C011FBAD46F006FB5BB /* AMapPolyline.m */,
+				96D51C051FBAD470006FB5BB /* AMapPolylineManager.m */,
+				96D51BDD1FBAD46C006FB5BB /* AMapRide.h */,
+				96D51BE51FBAD46C006FB5BB /* AMapRide.m */,
+				96D51BF01FBAD46D006FB5BB /* AMapRideManager.m */,
+				96D51BFB1FBAD46E006FB5BB /* AMapUtils.m */,
+				96D51BFC1FBAD46E006FB5BB /* AMapView.h */,
+				96D51BF81FBAD46E006FB5BB /* AMapView.m */,
+				96D51BDE1FBAD46C006FB5BB /* AMapViewManager.m */,
+				96D51BDF1FBAD46C006FB5BB /* AMapWalk.h */,
+				96D51BF41FBAD46D006FB5BB /* AMapWalk.m */,
+				96D51C021FBAD46F006FB5BB /* AMapWalkManager.m */,
+				96D51BE61FBAD46C006FB5BB /* Coordinate.h */,
+				96D51BEA1FBAD46D006FB5BB /* Coordinate.m */,
+				96D51BE91FBAD46D006FB5BB /* POISearch.h */,
+				96D51BF91FBAD46E006FB5BB /* POISearch.m */,
+				96D51C031FBAD46F006FB5BB /* RCTConvert+AMapView.m */,
+				96D51C041FBAD46F006FB5BB /* RNLocation.h */,
+				96D51BFD1FBAD46E006FB5BB /* RNLocation.m */,
+			);
+			path = RNAMap;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		96D51BD01FBAD31D006FB5BB /* RNAMap */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 96D51BDA1FBAD31D006FB5BB /* Build configuration list for PBXNativeTarget "RNAMap" */;
+			buildPhases = (
+				96D51BCD1FBAD31D006FB5BB /* Sources */,
+				96D51BCE1FBAD31D006FB5BB /* Frameworks */,
+				96D51BCF1FBAD31D006FB5BB /* CopyFiles */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = RNAMap;
+			productName = RNAMap;
+			productReference = 96D51BD11FBAD31D006FB5BB /* libRNAMap.a */;
+			productType = "com.apple.product-type.library.static";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		96D51BC91FBAD31D006FB5BB /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0900;
+				ORGANIZATIONNAME = Jason;
+				TargetAttributes = {
+					96D51BD01FBAD31D006FB5BB = {
+						CreatedOnToolsVersion = 9.0.1;
+						ProvisioningStyle = Automatic;
+					};
+				};
+			};
+			buildConfigurationList = 96D51BCC1FBAD31D006FB5BB /* Build configuration list for PBXProject "RNAMap" */;
+			compatibilityVersion = "Xcode 8.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 96D51BC81FBAD31D006FB5BB;
+			productRefGroup = 96D51BD21FBAD31D006FB5BB /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				96D51BD01FBAD31D006FB5BB /* RNAMap */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXSourcesBuildPhase section */
+		96D51BCD1FBAD31D006FB5BB /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				96D51C191FBAD470006FB5BB /* RNLocation.m in Sources */,
+				96D51C111FBAD470006FB5BB /* AMapCircle.m in Sources */,
+				96D51C0F1FBAD470006FB5BB /* AMapMarkerManager.m in Sources */,
+				96D51C081FBAD470006FB5BB /* AMapInfoWindowManager.m in Sources */,
+				96D51C0A1FBAD470006FB5BB /* AMapRide.m in Sources */,
+				96D51C131FBAD470006FB5BB /* AMapCircleManager.m in Sources */,
+				96D51C1C1FBAD470006FB5BB /* AMapPolyline.m in Sources */,
+				96D51C0B1FBAD470006FB5BB /* AMapInfoWindow.m in Sources */,
+				96D51C061FBAD470006FB5BB /* AMapViewManager.m in Sources */,
+				96D51C121FBAD470006FB5BB /* AMapWalk.m in Sources */,
+				96D51C181FBAD470006FB5BB /* AMapUtils.m in Sources */,
+				96D51C091FBAD470006FB5BB /* AMapModel.m in Sources */,
+				96D51C1B1FBAD470006FB5BB /* AMapDrive.m in Sources */,
+				96D51C1D1FBAD470006FB5BB /* AMapWalkManager.m in Sources */,
+				96D51C0E1FBAD470006FB5BB /* AMapDriveManager.m in Sources */,
+				96D51C161FBAD470006FB5BB /* AMapView.m in Sources */,
+				96D51C1E1FBAD470006FB5BB /* RCTConvert+AMapView.m in Sources */,
+				96D51C071FBAD470006FB5BB /* AMapMultiPointManager.m in Sources */,
+				96D51C0C1FBAD470006FB5BB /* AMapPolygonManager.m in Sources */,
+				96D51C0D1FBAD470006FB5BB /* Coordinate.m in Sources */,
+				96D51C1F1FBAD470006FB5BB /* AMapPolylineManager.m in Sources */,
+				96D51C101FBAD470006FB5BB /* AMapRideManager.m in Sources */,
+				96D51C141FBAD470006FB5BB /* AMapMultiPoint.m in Sources */,
+				96D51C171FBAD470006FB5BB /* POISearch.m in Sources */,
+				96D51C1A1FBAD470006FB5BB /* AMapMarker.m in Sources */,
+				96D51C151FBAD470006FB5BB /* AMapPolygon.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		96D51BD81FBAD31D006FB5BB /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		96D51BD91FBAD31D006FB5BB /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		96D51BDB1FBAD31D006FB5BB /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SRCROOT)/../../../ios/Pods/AMapFoundation-NO-IDFA",
+					"$(SRCROOT)/../../../ios/Pods/AMapLocation-NO-IDFA",
+					"$(SRCROOT)/../../../ios/Pods/AMap3DMap-NO-IDFA",
+					"$(SRCROOT)/../../../ios/Pods/AMapNavi-NO-IDFA",
+					"$(SRCROOT)/../../../ios/Pods/AMapSearch-NO-IDFA",
+				);
+				HEADER_SEARCH_PATHS = (
+					"$(SRCROOT)/../../react-native/React/**",
+					"$(inherited)",
+				);
+				OTHER_LDFLAGS = "-ObjC";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		96D51BDC1FBAD31D006FB5BB /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SRCROOT)/../../../ios/Pods/AMapFoundation-NO-IDFA",
+					"$(SRCROOT)/../../../ios/Pods/AMapLocation-NO-IDFA",
+					"$(SRCROOT)/../../../ios/Pods/AMap3DMap-NO-IDFA",
+					"$(SRCROOT)/../../../ios/Pods/AMapNavi-NO-IDFA",
+					"$(SRCROOT)/../../../ios/Pods/AMapSearch-NO-IDFA",
+				);
+				HEADER_SEARCH_PATHS = (
+					"$(SRCROOT)/../../react-native/React/**",
+					"$(inherited)",
+				);
+				OTHER_LDFLAGS = "-ObjC";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		96D51BCC1FBAD31D006FB5BB /* Build configuration list for PBXProject "RNAMap" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				96D51BD81FBAD31D006FB5BB /* Debug */,
+				96D51BD91FBAD31D006FB5BB /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		96D51BDA1FBAD31D006FB5BB /* Build configuration list for PBXNativeTarget "RNAMap" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				96D51BDB1FBAD31D006FB5BB /* Debug */,
+				96D51BDC1FBAD31D006FB5BB /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 96D51BC91FBAD31D006FB5BB /* Project object */;
+}
