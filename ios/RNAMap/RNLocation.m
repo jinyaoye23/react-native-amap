@@ -48,10 +48,10 @@ RCT_EXPORT_METHOD(startLocation:(NSDictionary *)options) {
     // set default value
     CLLocationAccuracy accuracy             = kCLLocationAccuracyHundredMeters;
     CLLocationDistance distanceFilter       = kCLDistanceFilterNone;
-    BOOL allowsBackgroundLocationUpdates    = NO;
-    BOOL locatingWithReGeocode              = NO;
+    BOOL allowsBackgroundLocationUpdates    = YES;
+    BOOL locatingWithReGeocode              = YES;
     BOOL onceLocation                       = NO;
-    BOOL pausesLocationUpdatesAutomatically = YES;
+    BOOL pausesLocationUpdatesAutomatically = NO;
     NSInteger locationTimeout               = kDefaultLocationTimeout;
     NSInteger reGeocodeTimeout              = kDefaultReGeocodeTimeout;
     

@@ -36,6 +36,84 @@ RCT_EXPORT_MODULE(POISearch)
 //    self.search.delegate = self;
 }
 
+// 根据GPS坐标获取地址
+RCT_EXPORT_METHOD(getAddressByLngLat: (NSDictionary *) params) {
+    if (self.search == nil) {
+        self.search = [[AMapSearchAPI alloc] init];
+        self.search.delegate = self;
+    }
+    AMapReGeocodeSearchRequest *request = [[AMapReGeocodeSearchRequest alloc] init];
+    
+    if (params != nil) {
+        double latitude = [[params objectForKey:@"latitude"] doubleValue];
+        double longitude = [[params objectForKey:@"longitude"] doubleValue];
+        request.location = [AMapGeoPoint locationWithLatitude:latitude longitude:longitude];
+        
+        NSArray *keys = [params allKeys];
+        if ([keys containsObject:@"requireExtension"]) {
+            BOOL requireExtension = [[params objectForKey:@"requireExtension"] boolValue];
+            request.requireExtension = requireExtension;
+        }
+        if([keys containsObject:@"radius"]) {
+            // 半径
+            int radius = [[params objectForKey:@"radius"] intValue];
+            request.radius = radius;
+        }
+    }
+    [self.search AMapReGoecodeSearch:request];
+    
+}
+
+RCT_EXPORT_METHOD(searchPoiByKeyword: (NSDictionary *) params
+                  resolve: (RCTPromiseResolveBlock)resolve
+                   reject: (RCTPromiseRejectBlock) reject)
+{
+    if (self.search == nil) {
+        self.search = [[AMapSearchAPI alloc] init];
+        self.search.delegate = self;
+    }
+    self.resolve = resolve;
+    self.reject = reject;
+    
+    AMapPOIKeywordsSearchRequest *request =[[AMapPOIKeywordsSearchRequest alloc] init];
+    
+    if(params != nil) {
+        NSArray *keys = [params allKeys];
+        if ([keys containsObject:@"keyword"]) {
+            // 关键字
+            NSString *keyword = [params objectForKey:@"keyword"];
+            request.keywords = keyword;
+        }
+        if ([keys containsObject:@"types"]) {
+            // 类型
+            NSString *types = [params objectForKey:@"types"];
+            request.types = types;
+        }
+        if([keys containsObject:@"city"]) {
+            // 搜索的城市
+            NSString *city = [params objectForKey:@"city"];
+            request.city = city;
+        }
+        if([keys containsObject:@"offset"]) {
+            // 偏移量, 每页返回的条数
+            int offset = [[params objectForKey:@"offset"] intValue];
+            request.offset = offset;
+        }
+        if([keys containsObject:@"requireExtension"]) {
+            
+            BOOL requireExtension = [[params objectForKey:@"requireExtension"] boolValue];
+            request.requireExtension = requireExtension;
+        }
+        if([keys containsObject:@"cityLimit"]) {
+//            request.cityLimit = false;
+            // 搜索的城市
+            BOOL cityLimit = [[params objectForKey:@"cityLimit"] boolValue];
+            request.cityLimit = cityLimit;
+        }
+        [self.search AMapPOIKeywordsSearch:request];
+    }
+}
+// 根据坐标获取GPS
 RCT_EXPORT_METHOD(searchPoiByCenterCoordinate: (NSDictionary *) params
                   resolve: (RCTPromiseResolveBlock)resolve
                   reject: (RCTPromiseRejectBlock) reject)
@@ -79,8 +157,8 @@ RCT_EXPORT_METHOD(searchPoiByCenterCoordinate: (NSDictionary *) params
             request.requireSubPOIs = requireSubPOIs;
         }
         
-        if([keys containsObject:@"keywords"]) {
-            NSString *keywords = [params objectForKey:@"keywords"];
+        if([keys containsObject:@"keyword"]) {
+            NSString *keywords = [params objectForKey:@"keyword "];
             request.keywords = keywords;
         }
         if([keys containsObject:@"coordinate"]) {
@@ -91,7 +169,7 @@ RCT_EXPORT_METHOD(searchPoiByCenterCoordinate: (NSDictionary *) params
         }
         if([keys containsObject:@"radius"]) {
             // 半径
-            int *radius = [[params objectForKey:@"radius"] intValue];
+            int radius = [[params objectForKey:@"radius"] intValue];
             request.radius = radius;
         }
         // 发起搜索
@@ -114,6 +192,12 @@ RCT_EXPORT_METHOD(searchPoiByCenterCoordinate: (NSDictionary *) params
         self.reject(errorCodeStr, error.localizedDescription, error);
     }
 }
+
+-(void) onReGeocodeSearchDone:(AMapReGeocodeSearchRequest *)request response:(AMapReGeocodeSearchResponse *)response
+{
+    
+}
+
 /* 搜索成功 */
 -(void) onPOISearchDone:(AMapPOISearchBaseRequest *)request response:(AMapPOISearchResponse *)response
 {
@@ -141,12 +225,22 @@ RCT_EXPORT_METHOD(searchPoiByCenterCoordinate: (NSDictionary *) params
                    @"resultList": resultList,
                    @"status": @"OK"
                    };
-        if (self.resolve != nil) {
-            self.resolve(result);
-        }
+//        if (self.resolve != nil) {
+//            self.resolve(result);
+//        }
+    } else {
+        result = @{
+                   @"resultList": @[],
+                   @"status": @"OK"
+                   };
+//        if (self.resolve != nil) {
+//            self.resolve(result);
+//        }
+    }
+    if (self.resolve != nil) {
+        self.resolve(result);
     }
     
 }
-
 
 @end

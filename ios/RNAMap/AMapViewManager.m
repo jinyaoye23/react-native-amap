@@ -72,13 +72,23 @@ RCT_EXPORT_METHOD(setLockedPin: (nonnull NSNumber*)reactTag
         annotation.lockedScreenPoint = CGPointMake(mapView.bounds.size.width / 2, mapView.bounds.size.height / 2) ;
     }];
 }
-//RCT_EXPORT_METHOD(addAnnotations:(nonnull NSNumber *)reactTag annotations: (NSArray*) annotations) {
-//    [self.bridge.uiManager addUIBlock:^(RCTUIManager *uiManager, NSDictionary<NSNumber *,UIView *> *viewRegistry) {
-//        
-//        AMapView *mapView = (AMapView *) viewRegistry[reactTag];
-//    }];
-//}
 
+// 设置setFitView
+RCT_EXPORT_METHOD(setFitView: (nonnull NSNumber*)reactTag) {
+    [self.bridge.uiManager addUIBlock:^(RCTUIManager *uiManager, NSDictionary<NSNumber *,UIView *> *viewRegistry) {
+         AMapView *mapView = (AMapView *) viewRegistry[reactTag];
+//        mapView.ano
+//        NSArray *annotations = mapView.annotations;
+        [mapView showAnnotations:mapView.annotations animated:YES];
+    }];
+}
+// 移除地图上所有的标注
+RCT_EXPORT_METHOD(removeAnnotations: (nonnull NSNumber*)reactTag) {
+    [self.bridge.uiManager addUIBlock:^(RCTUIManager *uiManager, NSDictionary<NSNumber *,UIView *> *viewRegistry) {
+        AMapView *mapView = (AMapView *) viewRegistry[reactTag];
+        [mapView removeAnnotations:mapView.annotations];
+    }];
+}
 
 RCT_EXPORT_METHOD(animateTo:(nonnull NSNumber *)reactTag params:(NSDictionary *)params duration:(NSInteger)duration) {
     [self.bridge.uiManager addUIBlock:^(__unused RCTUIManager *uiManager, NSDictionary<NSNumber *, UIView *> *viewRegistry) {

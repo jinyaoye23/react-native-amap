@@ -1,7 +1,7 @@
 // @flow
 import React from 'react'
 import PropTypes from 'prop-types'
-import { requireNativeComponent, ViewPropTypes } from 'react-native'
+import { requireNativeComponent, ViewPropTypes, Platform } from 'react-native'
 import { LatLng, Region } from '../PropTypes'
 import BaseComponent from '../BaseComponent'
 
@@ -212,9 +212,30 @@ export default class MapView extends BaseComponent {
     this._sendCommand('animateTo', [target, duration])
   }
 
+  /**
+   * 设置固定在屏幕正中间的标注
+   * 
+   * @param {any} coordinate 
+   * @param {any} image 
+   * @memberof MapView
+   */
   setLockedPin(coordinate, image) {
-    this._sendCommand('setLockedPin', [coordinate, image]);
+    if (Platform.OS == 'ios') {
+      this._sendCommand('setLockedPin', [coordinate]);
+    } else {
+      this._sendCommand('setLockedPin', [coordinate, image]);
+    }
+
   }
+
+  setFitView() {
+    this._sendCommand('setFitView', []);
+  }
+
+  removeAllMarker() {
+    this._sendCommand('removeAnnotations', []);
+  }
+
   render() {
     return <AMapView {...this.props} />
   }

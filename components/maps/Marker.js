@@ -23,6 +23,9 @@ export default class Marker extends BaseComponent {
      * 描述
      */
     description: PropTypes.string,
+    /**
+     * 是否是固定在中间的大头针
+     */
     lockedToScreen: PropTypes.bool,
 
     /**

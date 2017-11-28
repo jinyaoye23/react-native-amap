@@ -52,8 +52,8 @@ public class PIOSearchModule extends ReactContextBaseJavaModule implements PoiSe
         if (options.hasKey("types")) {
             types = options.getString("types");
         }
-        if (options.hasKey("keywords")) {
-            keywords = options.getString("keywords");
+        if (options.hasKey("keyword")) {
+            keywords = options.getString("keyword");
         }
 
         PoiSearch.Query query = new PoiSearch.Query(keywords, types, "");
