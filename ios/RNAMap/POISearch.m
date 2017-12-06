@@ -158,7 +158,7 @@ RCT_EXPORT_METHOD(searchPoiByCenterCoordinate: (NSDictionary *) params
         }
         
         if([keys containsObject:@"keyword"]) {
-            NSString *keywords = [params objectForKey:@"keyword "];
+            NSString *keywords = [params objectForKey:@"keyword"];
             request.keywords = keywords;
         }
         if([keys containsObject:@"coordinate"]) {
