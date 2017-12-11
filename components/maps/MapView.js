@@ -228,8 +228,18 @@ export default class MapView extends BaseComponent {
 
   }
 
-  setFitView() {
-    this._sendCommand('setFitView', []);
+  /**
+   * @description 根据地图上面的覆盖物将地图移动到合适的缩放几倍
+   * @param {Array}latLngList  
+   * @memberof MapView
+   */
+  setFitView(latLngList = []) {
+    if (Platform.OS == 'ios') {
+      this._sendCommand('setFitView');
+    } else {
+      // Android端需要传入经纬度列表
+      this._sendCommand('setFitView', [latLngList]);
+    }
   }
 
   removeAllMarker() {

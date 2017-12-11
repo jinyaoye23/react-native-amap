@@ -175,6 +175,23 @@ class AMapView(context: Context) : TextureMapView(context) {
         marker.setPositionByPixels(screenPosition.x, screenPosition.y)
     }
 
+    fun setFitView(args: ReadableArray?) {
+        val list = args?.getArray(0)
+//        val list = args?.getArray(0).toArrayList()
+        val builder = LatLngBounds.builder()
+
+        ArrayList((0 until list!!.size())
+                .map { list.getMap(it) }
+                .map {
+                    builder.include(LatLng(it.getDouble("latitude"), it.getDouble("longitude")))
+                }
+            )
+
+        val bound = builder.build();
+        val cameraUpdate = CameraUpdateFactory.newLatLngBounds(bound, 50)
+        map.moveCamera(cameraUpdate)
+    }
+
     fun animateTo(args: ReadableArray?) {
         val currentCameraPosition = map.cameraPosition
         val target = args?.getMap(0)!!

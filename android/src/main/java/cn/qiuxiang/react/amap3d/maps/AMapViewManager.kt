@@ -16,6 +16,7 @@ internal class AMapViewManager : ViewGroupManager<AMapView>() {
     companion object {
         val ANIMATE_TO = 1
         val SET_LOCKED_PIN = 2
+        val SET_FIT_VIEW = 3
     }
 
     override fun getName(): String {
@@ -32,13 +33,17 @@ internal class AMapViewManager : ViewGroupManager<AMapView>() {
     }
 
     override fun getCommandsMap(): Map<String, Int> {
-        return mapOf("animateTo" to ANIMATE_TO, "setLockedPin" to SET_LOCKED_PIN)
+        return mapOf("animateTo" to ANIMATE_TO,
+                "setLockedPin" to SET_LOCKED_PIN,
+                "setFitView" to SET_FIT_VIEW
+        )
     }
 
     override fun receiveCommand(overlay: AMapView, commandId: Int, args: ReadableArray?) {
         when (commandId) {
             ANIMATE_TO -> overlay.animateTo(args)
             SET_LOCKED_PIN -> overlay.setLockedPin(args)
+            SET_FIT_VIEW -> overlay.setFitView(args)
         }
     }
 
