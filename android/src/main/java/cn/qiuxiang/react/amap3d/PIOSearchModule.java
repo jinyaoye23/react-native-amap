@@ -4,6 +4,11 @@ import android.support.annotation.Nullable;
 
 import com.amap.api.services.core.LatLonPoint;
 import com.amap.api.services.core.PoiItem;
+import com.amap.api.services.geocoder.GeocodeResult;
+import com.amap.api.services.geocoder.GeocodeSearch;
+import com.amap.api.services.geocoder.RegeocodeAddress;
+import com.amap.api.services.geocoder.RegeocodeQuery;
+import com.amap.api.services.geocoder.RegeocodeResult;
 import com.amap.api.services.poisearch.PoiResult;
 import com.amap.api.services.poisearch.PoiSearch;
 import com.facebook.react.bridge.Arguments;
@@ -22,9 +27,10 @@ import java.util.List;
  * Created by Jason on 2017/11/13.
  */
 
-public class PIOSearchModule extends ReactContextBaseJavaModule implements PoiSearch.OnPoiSearchListener{
+public class PIOSearchModule extends ReactContextBaseJavaModule implements PoiSearch.OnPoiSearchListener, GeocodeSearch.OnGeocodeSearchListener{
 //    searchPoiByCenterCoordinate
     private Promise mPromise;
+    private Promise mGeocodePromise;
     private final ReactApplicationContext mReactContext;
 
     public PIOSearchModule(ReactApplicationContext reactContext) {
@@ -72,6 +78,37 @@ public class PIOSearchModule extends ReactContextBaseJavaModule implements PoiSe
 
     }
 
+    /**
+     *  根据经纬度获取地址
+     * @param options
+     * @param promise
+     */
+    @ReactMethod
+    public void getAddressByLatlng(@Nullable ReadableMap options, Promise promise) {
+        mGeocodePromise = promise;
+
+        if (options == null) {
+            promise.resolve(null);
+            return;
+        }
+
+        if(options.hasKey("latitude") && options.hasKey("longitude")) {
+            int radius = 1000;
+            if (options.hasKey("radius")) {
+                radius = options.getInt("radius");
+            }
+            LatLonPoint point = new LatLonPoint(options.getDouble("latitude"), options.getDouble("longitude"));
+
+            RegeocodeQuery query = new RegeocodeQuery(point, radius, GeocodeSearch.AMAP);
+
+            GeocodeSearch geocodeSearch = new GeocodeSearch(mReactContext);
+            geocodeSearch.setOnGeocodeSearchListener(this);
+            geocodeSearch.getFromLocationAsyn(query);
+        } else {
+            promise.resolve(null);
+        }
+
+    }
 
     @Override
     public void onPoiSearched(PoiResult poiResult, int i) {
@@ -90,6 +127,25 @@ public class PIOSearchModule extends ReactContextBaseJavaModule implements PoiSe
     @Override
     public void onPoiItemSearched(PoiItem poiItem, int i) {
 
+
+    }
+
+    // 根据给定的经纬度和最大结果数返回逆地理编码的结果列表。
+    @Override
+    public void onRegeocodeSearched(RegeocodeResult regeocodeResult, int i) {
+        if (i == 1000) {
+            // 搜索成功
+            RegeocodeAddress regeocodeAddress = regeocodeResult.getRegeocodeAddress();
+            WritableMap result = Arguments.createMap();
+            result.putString("address", regeocodeAddress.getFormatAddress());
+            mGeocodePromise.resolve(result);
+        } else {
+            mGeocodePromise.reject(String.valueOf(i), "获取地址失败");
+        }
+    }
+
+    @Override
+    public void onGeocodeSearched(GeocodeResult geocodeResult, int i) {
 
     }
 

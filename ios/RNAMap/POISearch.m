@@ -16,6 +16,10 @@
 @property (nonatomic, strong) AMapSearchAPI *search;
 @property (nonatomic, strong) RCTPromiseResolveBlock resolve;
 @property (nonatomic, strong) RCTPromiseRejectBlock reject;
+@property (nonatomic, strong) RCTPromiseResolveBlock geocodeResolve;
+@property (nonatomic, strong) RCTPromiseRejectBlock geocodeReject;
+@property (nonatomic) BOOL isPOISearch;
+@property (nonatomic) BOOL isGeocodeSearch;
 
 @end
 
@@ -33,15 +37,25 @@ RCT_EXPORT_MODULE(POISearch)
     self.resolve = nil;
     self.reject = nil;
     self.search = nil;
+    self.geocodeResolve = nil;
+    self.geocodeReject = nil;
+    self.isPOISearch = FALSE;
+    self.isPOISearch = FALSE;
 //    self.search.delegate = self;
 }
 
 // 根据GPS坐标获取地址
-RCT_EXPORT_METHOD(getAddressByLngLat: (NSDictionary *) params) {
+RCT_EXPORT_METHOD(getAddressByLatlng: (NSDictionary *) params
+                  resolve: (RCTPromiseResolveBlock)resolve
+                  reject: (RCTPromiseRejectBlock) reject)
+{
     if (self.search == nil) {
         self.search = [[AMapSearchAPI alloc] init];
         self.search.delegate = self;
     }
+    self.geocodeResolve = resolve;
+    self.geocodeReject = reject;
+    self.isGeocodeSearch = TRUE;
     AMapReGeocodeSearchRequest *request = [[AMapReGeocodeSearchRequest alloc] init];
     
     if (params != nil) {
@@ -74,7 +88,7 @@ RCT_EXPORT_METHOD(searchPoiByKeyword: (NSDictionary *) params
     }
     self.resolve = resolve;
     self.reject = reject;
-    
+    self.isPOISearch = TRUE;
     AMapPOIKeywordsSearchRequest *request =[[AMapPOIKeywordsSearchRequest alloc] init];
     
     if(params != nil) {
@@ -124,6 +138,7 @@ RCT_EXPORT_METHOD(searchPoiByCenterCoordinate: (NSDictionary *) params
     }
     self.resolve = resolve;
     self.reject = reject;
+    self.isPOISearch = TRUE;
     AMapPOIAroundSearchRequest * request = [[AMapPOIAroundSearchRequest alloc] init];
     if (params != nil) {
         NSArray *keys = [params allKeys];
@@ -188,14 +203,39 @@ RCT_EXPORT_METHOD(searchPoiByCenterCoordinate: (NSDictionary *) params
                @"message": error.localizedDescription
                };
     
-    if (self.reject != nil) {
-        self.reject(errorCodeStr, error.localizedDescription, error);
+    if (self.isPOISearch) {
+        if (self.reject != nil) {
+            self.reject(errorCodeStr, error.localizedDescription, error);
+        }
+        self.isPOISearch = FALSE;
     }
+    if (self.isGeocodeSearch) {
+        if (self.geocodeReject) {
+             self.geocodeReject(errorCodeStr, error.localizedDescription, error);
+        }
+        self.isGeocodeSearch = FALSE;
+    }
+    
 }
 
+/* 你地址编码 */
 -(void) onReGeocodeSearchDone:(AMapReGeocodeSearchRequest *)request response:(AMapReGeocodeSearchResponse *)response
 {
-    
+    NSDictionary *result;
+    if (response.regeocode) {
+        result = @{
+                 @"address": response.regeocode.formattedAddress
+                 };
+        
+    } else {
+        result = @{
+                   @"address": @"",
+                   };
+    }
+    if (self.geocodeResolve != nil) {
+        self.geocodeResolve(result);
+    }
+     self.isGeocodeSearch = FALSE;
 }
 
 /* 搜索成功 */
@@ -240,7 +280,7 @@ RCT_EXPORT_METHOD(searchPoiByCenterCoordinate: (NSDictionary *) params
     if (self.resolve != nil) {
         self.resolve(result);
     }
-    
+    self.isPOISearch = FALSE;
 }
 
 @end
