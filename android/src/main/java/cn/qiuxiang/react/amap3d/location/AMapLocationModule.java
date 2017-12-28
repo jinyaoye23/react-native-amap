@@ -22,10 +22,12 @@ import javax.annotation.Nullable;
 public class AMapLocationModule extends ReactContextBaseJavaModule implements AMapLocationListener, LifecycleEventListener{
     private static final String MODULE_NAME = "RNLocation";
     private AMapLocationClient mLocationClient;
+    private AMapLocationClient multipLocationClient;
     private AMapLocationListener mLocationListener = this;
     private final ReactApplicationContext mReactContext;
     // 是否显示详细信息
     private boolean needDetail = false;
+    private boolean multipNeedDetail = false;
 
     private void sendEvent(String eventName, @Nullable WritableMap params) {
         if (mReactContext != null) {
@@ -80,6 +82,7 @@ public class AMapLocationModule extends ReactContextBaseJavaModule implements AM
             }
             if (options.hasKey("needAddress")) {
                 //设置是否返回地址信息（默认返回地址信息）
+                needDetail = options.getBoolean("needAddress");
                 mLocationOption.setNeedAddress(options.getBoolean("needAddress"));
             }
             if (options.hasKey("onceLocation")) {
@@ -144,14 +147,105 @@ public class AMapLocationModule extends ReactContextBaseJavaModule implements AM
         }
     }
 
+    @ReactMethod
+    public void startContinuousLocation(@Nullable ReadableMap options) {
+        multipLocationClient = new AMapLocationClient(mReactContext);
+        multipLocationClient.setLocationListener(new AMapLocationListener() {
+            @Override
+            public void onLocationChanged(AMapLocation aMapLocation) {
+                if (aMapLocation != null) {
+                    sendEvent("onContinuousLocationChangedEvent", amapLocationToObject(aMapLocation, multipNeedDetail));
+                }
+            }
+        });
+        mReactContext.addLifecycleEventListener(this);
+        AMapLocationClientOption mLocationOption = new AMapLocationClientOption();
+        multipNeedDetail = true;
+        mLocationOption.setOnceLocation(false);
+        if (options != null) {
+            if (options.hasKey("accuracy")) {
+                //设置定位模式为高精度模式，Battery_Saving为低功耗模式，Device_Sensors是仅设备模式
+                switch (options.getString("accuracy")) {
+                    case "BatterySaving":
+                        mLocationOption.setLocationMode(AMapLocationMode.Battery_Saving);
+                        break;
+                    case "DeviceSensors":
+                        mLocationOption.setLocationMode(AMapLocationMode.Device_Sensors);
+                        break;
+                    case "HighAccuracy":
+                        mLocationOption.setLocationMode(AMapLocationMode.Hight_Accuracy);
+                        break;
+                    default:
+                        break;
+                }
+            }
+            if (options.hasKey("needAddress")) {
+                //设置是否返回地址信息（默认返回地址信息）
+                multipNeedDetail = options.getBoolean("needAddress");
+                mLocationOption.setNeedAddress(options.getBoolean("needAddress"));
+            }
+            if (options.hasKey("wifiActiveScan")) {
+                //设置是否强制刷新WIFI，默认为强制刷新
+                //模式为仅设备模式(Device_Sensors)时无效
+                mLocationOption.setWifiActiveScan(options.getBoolean("wifiActiveScan"));
+            }
+            if (options.hasKey("mockEnable")) {
+                //设置是否允许模拟位置,默认为false，不允许模拟位置
+                //模式为低功耗模式(Battery_Saving)时无效
+                mLocationOption.setMockEnable(options.getBoolean("mockEnable"));
+            }
+            if (options.hasKey("interval")) {
+                //设置定位间隔,单位毫秒,默认为2000ms
+                mLocationOption.setInterval(options.getInt("interval"));
+            }
+            if (options.hasKey("httpTimeOut")) {
+                //设置联网超时时间
+                //默认值：30000毫秒
+                //模式为仅设备模式(Device_Sensors)时无效
+                mLocationOption.setHttpTimeOut(options.getInt("httpTimeOut"));
+            }
+            // 默认是Https
+            mLocationOption.setLocationProtocol(AMapLocationClientOption.AMapLocationProtocol.HTTPS);
+            if (options.hasKey("protocol")) {
+                switch (options.getString("protocol")) {
+                    case "http":
+                        mLocationOption.setLocationProtocol(AMapLocationClientOption.AMapLocationProtocol.HTTP);
+                        break;
+                    case "https":
+                        mLocationOption.setLocationProtocol(AMapLocationClientOption.AMapLocationProtocol.HTTPS);
+                        break;
+                    default:
+                        break;
+                }
+            }
+            if (options.hasKey("locationCacheEnable")) {
+                mLocationOption.setLocationCacheEnable(options.getBoolean("locationCacheEnable"));
+            }
+        }
+        this.multipLocationClient.setLocationOption(mLocationOption);
+        this.multipLocationClient.startLocation();
+    }
+
+    @ReactMethod
+    public void stopContinuousLocation() {
+        if (this.multipLocationClient != null) {
+            this.multipLocationClient.stopLocation();
+        }
+    }
+    @ReactMethod
+    public void destroyContinuousLocation() {
+        if (this.multipLocationClient != null) {
+            this.multipLocationClient.onDestroy();
+        }
+    }
     @Override
     public void onLocationChanged(AMapLocation amapLocation) {
         if (amapLocation != null) {
-            sendEvent("onLocationChangedEvent", amapLocationToObject(amapLocation));
+            sendEvent("onLocationChangedEvent", amapLocationToObject(amapLocation, needDetail));
         }
     }
 
-    private WritableMap amapLocationToObject(AMapLocation amapLocation) {
+    private WritableMap amapLocationToObject(AMapLocation amapLocation, boolean needDetail) {
         WritableMap map = Arguments.createMap();
         Integer errorCode = amapLocation.getErrorCode();
         if (errorCode > 0) {
@@ -201,6 +295,9 @@ public class AMapLocationModule extends ReactContextBaseJavaModule implements AM
     public void onHostDestroy() {
         if (this.mLocationClient != null) {
             this.mLocationClient.onDestroy();
+        }
+        if (this.multipLocationClient != null) {
+            this.multipLocationClient.onDestroy();
         }
     }
 }
