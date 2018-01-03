@@ -20,6 +20,7 @@ static NSInteger const kDefaultLocationTimeout  = 10;
 static NSInteger const kDefaultReGeocodeTimeout = 5;
 
 static NSString * const LocationChangeEvent = @"onLocationChangedEvent";
+static NSString * const ContinuousLocationChangeEvent = @"onContinuousLocationChangedEvent";
 
 static NSString * const kErrorCodeKey = @"errorCode";
 static NSString * const kErrorInfoKey = @"errorInfo";
@@ -27,8 +28,10 @@ static NSString * const kErrorInfoKey = @"errorInfo";
 @interface RNLocation () <AMapLocationManagerDelegate>
 
 @property (nonatomic, strong) AMapLocationManager         *locationManager;
-
 @property (nonatomic, copy  ) AMapLocatingCompletionBlock completionBlock;
+// 持续定位对象
+@property (nonatomic, strong) AMapLocationManager *continuousLocationManager;
+@property (nonatomic) BOOL isContinuous;
 
 @end
 
@@ -42,6 +45,118 @@ RCT_EXPORT_MODULE(RNLocation);
 - (void)dealloc {
     self.locationManager = nil;
     self.completionBlock = nil;
+    self.continuousLocationManager = nil;
+    self.isContinuous = NO;
+}
+
+RCT_EXPORT_METHOD(startContinuousLocation: (NSDictionary *)options) {
+    // set default value
+    CLLocationAccuracy accuracy             = kCLLocationAccuracyHundredMeters;
+    CLLocationDistance distanceFilter       = kCLDistanceFilterNone;
+    BOOL allowsBackgroundLocationUpdates    = YES;
+    BOOL locatingWithReGeocode              = YES;
+    BOOL pausesLocationUpdatesAutomatically = NO;
+    NSInteger locationTimeout               = kDefaultLocationTimeout;
+    NSInteger reGeocodeTimeout              = kDefaultReGeocodeTimeout;
+    
+    if(options &&
+       [options isKindOfClass:[NSDictionary class]]) {
+        
+        /**
+         *  accuracy
+         *  精度值设定，值类型若为字符串，则使用预设值
+         *  若为数值，则使用具体数值，其他使用默认值
+         */
+        id accuracyValue = options[@"accuracy"];
+        if ([accuracyValue isKindOfClass:[NSString class]]) {
+            if ([accuracyValue isEqualToString:@"kCLLocationAccuracyBest"]) {
+                accuracy = kCLLocationAccuracyBest;
+            } else if ([accuracyValue isEqualToString:@"kCLLocationAccuracyNearestTenMeters"]) {
+                accuracy = kCLLocationAccuracyNearestTenMeters;
+            } else if ([accuracyValue isEqualToString:@"kCLLocationAccuracyHundredMeters"]) {
+                accuracy = kCLLocationAccuracyHundredMeters;
+            } else if ([accuracyValue isEqualToString:@"kCLLocationAccuracyKilometer"]) {
+                accuracy = kCLLocationAccuracyKilometer;
+            } else if ([accuracyValue isEqualToString:@"kCLLocationAccuracyThreeKilometers"]) {
+                accuracy = kCLLocationAccuracyThreeKilometers;
+            }
+        } else if ([accuracyValue isKindOfClass:[NSNumber class]]) {
+            accuracy = [accuracyValue doubleValue];
+        }
+        
+        /**
+         *  distanceFilter
+         *  对于非数字，采用默认值 kCLDistanceFilterNone
+         */
+        id distanceFilterValue = options[@"distanceFilter"];
+        if ([distanceFilterValue isKindOfClass:[NSNumber class]]) {
+            distanceFilter = [distanceFilterValue doubleValue];
+        }
+        
+        /**
+         *  allowsBackgroundLocationUpdates
+         *  针对 iOS 9.0+，允许后台位置更新，注意对应 background mode 配置
+         */
+        allowsBackgroundLocationUpdates = [options[@"allowsBackgroundLocationUpdates"] boolValue];
+        
+        /**
+         *  locatingWithReGeocode
+         *  是否逆地理位置编码
+         */
+        locatingWithReGeocode = [options[@"locatingWithReGeocode"] boolValue];
+        
+        
+        /**
+         *  pausesLocationUpdatesAutomatically
+         *  是否自动停止更新
+         */
+        pausesLocationUpdatesAutomatically = [options[@"pausesLocationUpdatesAutomatically"] boolValue];
+        
+        /**
+         *  locationTimeout
+         *  是否逆地理位置定位超时
+         */
+        locationTimeout = [options[@"locationTimeout"] intValue];
+        
+        /**
+         *  reGeocodeTimeout
+         *  逆地址解析超时
+         */
+        reGeocodeTimeout = [options[@"reGeocodeTimeout"] intValue];
+    }
+    
+    /**
+     *  更新定位管理器设置
+     */
+    [self.continuousLocationManager setDesiredAccuracy:accuracy];
+    [self.continuousLocationManager setDistanceFilter:distanceFilter];
+    
+    
+    [self.continuousLocationManager setAllowsBackgroundLocationUpdates:allowsBackgroundLocationUpdates];
+    [self.continuousLocationManager setLocatingWithReGeocode:YES];
+    [self.continuousLocationManager setPausesLocationUpdatesAutomatically:pausesLocationUpdatesAutomatically];
+    
+    [self.continuousLocationManager setLocationTimeout:locationTimeout];
+    [self.continuousLocationManager setReGeocodeTimeout:reGeocodeTimeout];
+    
+    // 先停止定位，在开始
+    [self.continuousLocationManager stopUpdatingLocation];
+    
+    [self.continuousLocationManager startUpdatingLocation];
+    
+    self.isContinuous = YES;
+    
+}
+/** 停止持续定位 */
+RCT_EXPORT_METHOD(stopContinuousLocation) {
+     self.isContinuous = NO;
+    [self.continuousLocationManager stopUpdatingLocation];
+}
+/** 销毁持续定位 */
+RCT_EXPORT_METHOD(destroyContinuousLocation) {
+    self.isContinuous = NO;
+    [self.continuousLocationManager stopUpdatingLocation];
+    self.continuousLocationManager = nil;
 }
 
 RCT_EXPORT_METHOD(startLocation:(NSDictionary *)options) {
@@ -173,6 +288,19 @@ RCT_EXPORT_METHOD(destroyLocation) {
     }
     return _locationManager;
 }
+-(AMapLocationManager *) continuousLocationManager {
+    if (!_continuousLocationManager) {
+        _continuousLocationManager = [[AMapLocationManager alloc] init ];
+        _continuousLocationManager.delegate = self;
+    }
+    return _continuousLocationManager;
+}
+-(BOOL) isContinuous {
+    if (!_isContinuous) {
+        _isContinuous = FALSE;
+    }
+    return _isContinuous;
+}
 
 - (AMapLocatingCompletionBlock)completionBlock {
     if (!_completionBlock) {
@@ -209,6 +337,11 @@ RCT_EXPORT_METHOD(destroyLocation) {
             }
             [self.bridge.eventDispatcher sendAppEventWithName:LocationChangeEvent
                                                          body:resultDic];
+            if (self.isContinuous) {
+                //  如果是持续定位，则发送持续定位事件
+                [self.bridge.eventDispatcher sendAppEventWithName:ContinuousLocationChangeEvent
+                                                             body:resultDic];
+            }
         };
     }
     return _completionBlock;

@@ -4,11 +4,13 @@ var ReactNative = require('react-native');
 
 var {
     NativeModules,
-    DeviceEventEmitter
+    DeviceEventEmitter,
+    Platform,
 } = ReactNative;
 
 const RNLocation = NativeModules.RNLocation;
 const onLocationChanged = 'onLocationChangedEvent';
+const onContinuousLocationChangedEvent = 'onContinuousLocationChangedEvent';
 // Android default options
 // {
 //     accuracy: 'HighAccuracy', // BatterySaving(低功耗定位模式), DeviceSensors(仅设备定位模式), HighAccuracy(高精度模式)
@@ -35,6 +37,8 @@ const onLocationChanged = 'onLocationChangedEvent';
 //     distanceFilter: 'kCLDistanceFilterNone'//设定定位的最小更新距离。默认为 kCLDistanceFilterNone 
 //   }
 module.exports = {
+    onContinuousLocationChangedEvent,
+    onLocationChanged,
     startLocation: function (options) {
         RNLocation.startLocation(options);
     },
@@ -44,11 +48,47 @@ module.exports = {
     destroyLocation: function () {
         RNLocation.destroyLocation();
     },
-    addEventListener: function (handler) {
+    /**
+     * 开启持续定位
+     * TODO: iOS 
+     */
+    startContinuousLocation: function (options) {
+        RNLocation.startContinuousLocation(options);
+        // if (Platform.OS == 'ios') {
+        //     this.startLocation(options);
+        // } else {
+        //     RNLocation.startContinuousLocation(options);
+        // }
+    },
+    /**
+     * 停止持续定位
+     * TODO: iOS 
+     */
+    stopContinuousLocation: function () {
+        RNLocation.stopContinuousLocation();
+        // if (Platform.OS == 'ios') {
+        //     this.stopLocation();
+        // } else {
+        //     RNLocation.stopContinuousLocation();
+        // }
+    },
+    /**
+     * 销毁定位
+     * TODO: iOS
+     */
+    destroyContinuousLocation: function () {
+        RNLocation.destroyContinuousLocation();
+        // if (Platform.OS == 'ios') {
+        //     this.stopLocation();
+        // } else {
+        //     RNLocation.destroyContinuousLocation();
+        // }
+    },
+    addEventListener: function (handler, eventName = onLocationChanged) {
         const listener = DeviceEventEmitter.addListener(
-            onLocationChanged,
+            eventName,
             handler
         );
         return listener;
-    }
+    },
 };
