@@ -1,6 +1,7 @@
 package cn.qiuxiang.react.amap3d;
 
 import android.support.annotation.Nullable;
+import android.util.Log;
 
 import com.amap.api.services.core.LatLonPoint;
 import com.amap.api.services.core.PoiItem;
@@ -161,8 +162,9 @@ public class PIOSearchModule extends ReactContextBaseJavaModule implements PoiSe
         retMap.putDouble("longitude", latlng.getLongitude());
         retMap.putString("address", poiItem.getSnippet());
         retMap.putInt("distance", poiItem.getDistance());
-        retMap.putString("city", poiItem.getCityName());
         retMap.putString("province", poiItem.getProvinceName());
+        retMap.putString("city", poiItem.getCityName());
+        retMap.putString("district", poiItem.getAdName());
         retMap.putString("tel", poiItem.getTel());
         return retMap;
     }

@@ -258,6 +258,7 @@ RCT_EXPORT_METHOD(searchPoiByCenterCoordinate: (NSDictionary *) params
                                     @"latitude": @(obj.location.latitude),
                                     @"longitude": @(obj.location.longitude),
                                     @"address": obj.address,
+                                    @"district": obj.district,
                                     @"tel": obj.tel,
                                     @"distance": @(obj.distance)
                                     }];
