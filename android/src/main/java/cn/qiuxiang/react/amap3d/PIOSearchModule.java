@@ -161,6 +161,8 @@ public class PIOSearchModule extends ReactContextBaseJavaModule implements PoiSe
         retMap.putDouble("longitude", latlng.getLongitude());
         retMap.putString("address", poiItem.getSnippet());
         retMap.putInt("distance", poiItem.getDistance());
+        retMap.putString("city", poiItem.getCityName());
+        retMap.putString("province", poiItem.getProvinceName());
         retMap.putString("tel", poiItem.getTel());
         return retMap;
     }

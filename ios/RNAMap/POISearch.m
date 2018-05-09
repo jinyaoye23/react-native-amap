@@ -251,6 +251,8 @@ RCT_EXPORT_METHOD(searchPoiByCenterCoordinate: (NSDictionary *) params
             [resultList addObject:@{
                                     @"uid": obj.uid,
                                     @"name": obj.name,
+                                    @"city": obj.city,
+                                    @"province": obj.province,
                                     @"type": obj.type,
                                     @"typecode": obj.typecode,
                                     @"latitude": @(obj.location.latitude),
