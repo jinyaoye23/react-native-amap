@@ -1,7 +1,6 @@
 package cn.qiuxiang.react.amap3d;
 
 import android.support.annotation.Nullable;
-import android.util.Log;
 
 import com.amap.api.services.core.LatLonPoint;
 import com.amap.api.services.core.PoiItem;
@@ -22,7 +21,6 @@ import com.facebook.react.bridge.WritableArray;
 import com.facebook.react.bridge.WritableMap;
 
 import java.util.ArrayList;
-import java.util.List;
 
 /**
  * Created by Jason on 2017/11/13.
@@ -137,8 +135,12 @@ public class PIOSearchModule extends ReactContextBaseJavaModule implements PoiSe
         if (i == 1000) {
             // 搜索成功
             RegeocodeAddress regeocodeAddress = regeocodeResult.getRegeocodeAddress();
+
             WritableMap result = Arguments.createMap();
             result.putString("address", regeocodeAddress.getFormatAddress());
+            result.putString("province", regeocodeAddress.getProvince());
+            result.putString("city", regeocodeAddress.getCity());
+            result.putString("district", regeocodeAddress.getDistrict());
             mGeocodePromise.resolve(result);
         } else {
             mGeocodePromise.reject(String.valueOf(i), "获取地址失败");

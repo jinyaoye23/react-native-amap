@@ -218,13 +218,16 @@ RCT_EXPORT_METHOD(searchPoiByCenterCoordinate: (NSDictionary *) params
     
 }
 
-/* 你地址编码 */
+/* 逆地址编码 */
 -(void) onReGeocodeSearchDone:(AMapReGeocodeSearchRequest *)request response:(AMapReGeocodeSearchResponse *)response
 {
     NSDictionary *result;
     if (response.regeocode) {
         result = @{
-                 @"address": response.regeocode.formattedAddress
+                 @"address": response.regeocode.formattedAddress,
+                 @"country": response.regeocode.addressComponent.country,
+                 @"province": response.regeocode.addressComponent.province,
+                 @"district": response.regeocode.addressComponent.district,
                  };
         
     } else {
