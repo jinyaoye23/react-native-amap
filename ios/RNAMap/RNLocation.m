@@ -150,10 +150,7 @@ RCT_EXPORT_METHOD(startContinuousLocation: (NSDictionary *)options) {
 /** 停止持续定位 */
 RCT_EXPORT_METHOD(stopContinuousLocation) {
      self.isContinuous = NO;
-    if (self.continuousLocationManager != nil) {
-        [self.continuousLocationManager stopUpdatingLocation];
-    }
-    
+    [self.continuousLocationManager stopUpdatingLocation];
 }
 /** 销毁持续定位 */
 RCT_EXPORT_METHOD(destroyContinuousLocation) {

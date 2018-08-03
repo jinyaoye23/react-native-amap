@@ -1,14 +1,5 @@
 package cn.qiuxiang.react.amap3d.location;
 
-import android.annotation.SuppressLint;
-import android.app.Notification;
-import android.app.NotificationChannel;
-import android.app.NotificationManager;
-import android.content.Context;
-import android.content.pm.PackageManager;
-import android.graphics.Color;
-import android.os.Build;
-
 import com.amap.api.location.AMapLocation;
 import com.amap.api.location.AMapLocationClient;
 import com.amap.api.location.AMapLocationClientOption;
@@ -37,11 +28,6 @@ public class AMapLocationModule extends ReactContextBaseJavaModule implements AM
     // 是否显示详细信息
     private boolean needDetail = false;
     private boolean multipNeedDetail = false;
-
-    private NotificationManager notificationManager = null;
-    boolean isCreateChannel = false;
-    private static final String NOTIFICATION_CHANNEL_NAME = "AMapBackgroundLocation";
-    private static final int CHANNEL_ID = 200001;
 
     private void sendEvent(String eventName, @Nullable WritableMap params) {
         if (mReactContext != null) {
@@ -243,9 +229,6 @@ public class AMapLocationModule extends ReactContextBaseJavaModule implements AM
     @ReactMethod
     public void stopContinuousLocation() {
         if (this.multipLocationClient != null) {
-            if (Build.VERSION.SDK_INT >= 26) {
-                this.multipLocationClient.disableBackgroundLocation(true);
-            }
             this.multipLocationClient.stopLocation();
         }
     }
@@ -301,20 +284,11 @@ public class AMapLocationModule extends ReactContextBaseJavaModule implements AM
     @Override
     public void onHostResume() {
 
-        if (Build.VERSION.SDK_INT >= 26) {
-            multipLocationClient.disableBackgroundLocation(true);
-        }
     }
 
     @Override
     public void onHostPause() {
 
-        if (Build.VERSION.SDK_INT >= 26) {
-            if (multipLocationClient != null && multipLocationClient.isStarted()) {
-                // 如果已经开启了定位，并且进入后台，则添加提示
-                multipLocationClient.enableBackgroundLocation(CHANNEL_ID, buildNotification());
-            }
-        }
     }
 
     @Override
@@ -325,60 +299,5 @@ public class AMapLocationModule extends ReactContextBaseJavaModule implements AM
         if (this.multipLocationClient != null) {
             this.multipLocationClient.onDestroy();
         }
-    }
-
-
-    /**
-     * 构建通知
-     *
-     * @return
-     */
-    @SuppressLint("NewApi")
-    private Notification buildNotification() {
-
-        Notification.Builder builder = null;
-        Notification notification = null;
-
-        if (Build.VERSION.SDK_INT >= 26) {
-            if (null == notificationManager) {
-                notificationManager = (NotificationManager)  mReactContext.getSystemService(Context.NOTIFICATION_SERVICE);
-            }
-
-            String channelId = mReactContext.getPackageName();
-
-            if (!isCreateChannel) {
-
-                NotificationChannel notificationChannel = new NotificationChannel(channelId, NOTIFICATION_CHANNEL_NAME, NotificationManager.IMPORTANCE_DEFAULT);
-                notificationChannel.enableLights(true); // //是否在桌面icon右上角展示小圆点
-                notificationChannel.enableVibration(false);
-                notificationChannel.setLightColor(Color.BLUE); //小圆点颜色
-                notificationChannel.setVibrationPattern(new long[]{0, 0, 0, 0,0, 0, 0, 0, 0});
-                notificationChannel.setShowBadge(true); //是否在久按桌面图标时显示此渠道的通知
-                notificationManager.createNotificationChannel(notificationChannel);
-                isCreateChannel = true;
-            }
-            builder = new Notification.Builder(mReactContext, channelId);
-        } else {
-            builder =  new Notification.Builder(mReactContext);
-        }
-
-        try {
-            builder.setSmallIcon(mReactContext.getPackageManager().getApplicationInfo(mReactContext.getPackageName(), PackageManager.GET_META_DATA).icon);
-        } catch (Exception e) {
-
-        }
-
-        builder.setContentTitle(mReactContext.getApplicationInfo().loadLabel(mReactContext.getPackageManager()).toString())
-                .setContentText("正在后台运行")
-                .setVisibility(Notification.VISIBILITY_SECRET)
-                .setWhen(System.currentTimeMillis());
-
-        if (android.os.Build.VERSION.SDK_INT >= 16) {
-            notification = builder.build();
-        } else {
-            return builder.getNotification();
-        }
-        return notification;
-
     }
 }
