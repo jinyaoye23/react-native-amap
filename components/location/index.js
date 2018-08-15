@@ -11,6 +11,19 @@ var {
 const RNLocation = NativeModules.RNLocation;
 const onLocationChanged = 'onLocationChangedEvent';
 const onContinuousLocationChangedEvent = 'onContinuousLocationChangedEvent';
+const LocationErrorCode = {
+    ...Platform.select({
+        android: {
+            NetWorkError: 4,
+            NoPermission: 12,
+        },
+        ios: {
+            NetWorkError: 8,  // 连接异常
+            Timeout: 4,       // 网络超时
+            LocationError: 2, // 定位错误，多因为网络和权限问题
+        }
+    })
+}
 // Android default options
 // {
 //     accuracy: 'HighAccuracy', // BatterySaving(低功耗定位模式), DeviceSensors(仅设备定位模式), HighAccuracy(高精度模式)
@@ -37,6 +50,7 @@ const onContinuousLocationChangedEvent = 'onContinuousLocationChangedEvent';
 //     distanceFilter: 'kCLDistanceFilterNone'//设定定位的最小更新距离。默认为 kCLDistanceFilterNone 
 //   }
 module.exports = {
+    LocationErrorCode,
     onContinuousLocationChangedEvent,
     onLocationChanged,
     startLocation: function (options) {
