@@ -228,6 +228,7 @@ RCT_EXPORT_METHOD(searchPoiByCenterCoordinate: (NSDictionary *) params
                  @"country": response.regeocode.addressComponent.country,
                  @"province": response.regeocode.addressComponent.province,
                  @"district": response.regeocode.addressComponent.district,
+                 @"city": response.regeocode.addressComponent.city,
                  };
         
     } else {
