@@ -52,6 +52,15 @@ public class PIOSearchModule extends ReactContextBaseJavaModule implements PoiSe
             return;
         }
 
+        /** modified by david at 2019-03-19 start */
+        // 签到 公司分页查询
+        int page = 0;
+        if (options.hasKey("page")) {
+            page = options.getInt("page");
+        }
+        /** modified by david at 2019-03-19 end */
+
+
         String types = "";
         String keywords = "";
         if (options.hasKey("types")) {
@@ -63,7 +72,7 @@ public class PIOSearchModule extends ReactContextBaseJavaModule implements PoiSe
 
         PoiSearch.Query query = new PoiSearch.Query(keywords, types, "");
         query.setPageSize(options.getInt("offset"));// 设置每页最多返回多少条poiitem
-        query.setPageNum(0);//设置查询页码
+        query.setPageNum(page);//设置查询页码
         PoiSearch poiSearch = new PoiSearch(mReactContext, query);
         poiSearch.setOnPoiSearchListener(this);
         if (options.hasKey("radius")) {
