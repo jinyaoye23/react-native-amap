@@ -27,6 +27,11 @@ RCT_EXPORT_METHOD(calculateRoute:(nonnull NSNumber *)reactTag
                                            drivingStrategy:AMapNaviDrivingStrategySingleDefault];
 }
 
++ (BOOL)requiresMainQueueSetup
+{
+    return YES;
+}
+
 - (void)driveManagerOnCalculateRouteSuccess:(AMapNaviDriveManager *)driveManager {
     if (_navigationView.onCalculateRouteSuccess) {
         _navigationView.onCalculateRouteSuccess(nil);

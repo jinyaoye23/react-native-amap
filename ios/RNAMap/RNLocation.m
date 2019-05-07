@@ -48,6 +48,10 @@ RCT_EXPORT_MODULE(RNLocation);
     self.continuousLocationManager = nil;
     self.isContinuous = NO;
 }
++ (BOOL)requiresMainQueueSetup
+{
+    return YES;
+}
 
 RCT_EXPORT_METHOD(startContinuousLocation: (NSDictionary *)options) {
     // set default value

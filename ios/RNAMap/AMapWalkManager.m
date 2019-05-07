@@ -24,6 +24,11 @@ RCT_EXPORT_METHOD(calculateRoute:(nonnull NSNumber *)reactTag
     [_navigationManager calculateWalkRouteWithStartPoints:@[start] endPoints:@[end]];
 }
 
++ (BOOL)requiresMainQueueSetup
+{
+    return YES;
+}
+
 - (void)walkManagerOnCalculateRouteSuccess:(AMapNaviWalkManager *)walkManager {
     if (_navigationView.onCalculateRouteSuccess) {
         _navigationView.onCalculateRouteSuccess(nil);

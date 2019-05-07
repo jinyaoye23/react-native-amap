@@ -24,6 +24,11 @@ RCT_EXPORT_METHOD(calculateRoute:(nonnull NSNumber *)reactTag
     [_navigationManager calculateRideRouteWithStartPoint:start endPoint:end];
 }
 
++ (BOOL)requiresMainQueueSetup
+{
+    return YES;
+}
+
 - (void)rideManagerOnCalculateRouteSuccess:(AMapNaviRideManager *)rideManager {
     if (_navigationView.onCalculateRouteSuccess) {
         _navigationView.onCalculateRouteSuccess(nil);
