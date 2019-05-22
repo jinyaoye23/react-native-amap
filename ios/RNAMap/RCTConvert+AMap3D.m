@@ -1,8 +1,8 @@
 #import <MAMapKit/MAMapView.h>
-#import <AMapNaviKit/AMapNaviCommonObj.h>
 #import <React/RCTConvert.h>
 #import <React/RCTConvert+CoreLocation.h>
 #import "Coordinate.h"
+#import "LocationStyle.h"
 
 @implementation RCTConvert (AMapView)
 
@@ -22,6 +22,15 @@ RCT_ENUM_CONVERTER(MAPinAnnotationColor, (@{
 
 + (Coordinate *)Coordinate:(id)json {
     return [[Coordinate alloc] initWithCoordinate:[self CLLocationCoordinate2D:json]];
+}
+
++ (LocationStyle *)LocationStyle:(id)json {
+    LocationStyle *locationStyle = [LocationStyle new];
+    locationStyle.fillColor = [self UIColor:json[@"fillColor"]];
+    locationStyle.strokeColor = [self UIColor:json[@"strokeColor"]];
+    locationStyle.strokeWidth = [self CGFloat:json[@"strokeWidth"]];
+    locationStyle.image = [UIImage imageNamed:[self NSString:json[@"image"]]];
+    return locationStyle;
 }
 
 + (MAHeatMapNode *)MAHeatMapNode:(id)json {
@@ -45,15 +54,8 @@ RCT_ENUM_CONVERTER(MAPinAnnotationColor, (@{
                     [self CLLocationDegrees:json[@"longitudeDelta"]]));
 }
 
-+ (AMapNaviPoint *)AMapNaviPoint:(id)json {
-    return [AMapNaviPoint
-            locationWithLatitude:[self CGFloat:json[@"latitude"]]
-                       longitude:[self CGFloat:json[@"longitude"]]];
-}
-
 RCT_ARRAY_CONVERTER(Coordinate)
 RCT_ARRAY_CONVERTER(MAHeatMapNode)
 RCT_ARRAY_CONVERTER(MAMultiPointItem)
-RCT_ARRAY_CONVERTER(AMapNaviPoint)
 
 @end

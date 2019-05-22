@@ -1,18 +1,18 @@
 // @flow
-import React from 'react'
-import PropTypes from 'prop-types'
-import { requireNativeComponent, ViewPropTypes, Platform } from 'react-native'
-import { LatLng, Region } from '../PropTypes'
-import BaseComponent from '../BaseComponent'
+import React from "react";
+import PropTypes from "prop-types";
+import { processColor, requireNativeComponent, ViewPropTypes, Platform } from "react-native";
+import { LatLng, Region } from "../PropTypes";
+import Component from "../Component";
 
-type Target = {
-  zoomLevel?: number,
-  coordinate?: LatLng,
-  titl?: number,
-  rotation?: number,
-}
+export const LocationStyle = PropTypes.shape({
+  image: PropTypes.string,
+  fillColor: PropTypes.string,
+  strokeColor: PropTypes.string,
+  strokeWidth: PropTypes.number
+});
 
-export default class MapView extends BaseComponent {
+export default class MapView extends Component {
   static propTypes = {
     ...ViewPropTypes,
 
@@ -25,7 +25,28 @@ export default class MapView extends BaseComponent {
      * - night: 夜间地图
      * - bus: 公交地图
      */
-    mapType: PropTypes.oneOf(['standard', 'satellite', 'navigation', 'night', 'bus']),
+    mapType: PropTypes.oneOf(["standard", "satellite", "navigation", "night", "bus"]),
+
+    /**
+     * 设置定位图标的样式
+     */
+    locationStyle: LocationStyle,
+
+    /**
+     * 设置定位模式 默认 LOCATION_TYPE_LOCATION_ROTATE_NO_CENTER
+     *
+     * @platform android
+     */
+    locationType: PropTypes.oneOf([
+      "show",
+      "locate",
+      "follow",
+      "map_rotate",
+      "location_rotate",
+      "location_rotate_no_center",
+      "follow_no_center",
+      "map_rotate_no_center"
+    ]),
 
     /**
      * 是否启用定位
@@ -159,16 +180,31 @@ export default class MapView extends BaseComponent {
 
     /**
      * 点击事件
+     *
+     * @param {{ nativeEvent: LatLng }}
      */
     onPress: PropTypes.func,
 
     /**
      * 长按事件
+     *
+     * @param {{ nativeEvent: LatLng }}
      */
     onLongPress: PropTypes.func,
 
     /**
      * 定位事件
+     *
+     * @param {{
+     *   nativeEvent: {
+     *     timestamp: number,
+     *     speed: number,
+     *     accuracy: number,
+     *     altitude: number,
+     *     longitude: number,
+     *     latitude: number,
+     *   }
+     * }}
      */
     onLocation: PropTypes.func,
 
@@ -184,32 +220,44 @@ export default class MapView extends BaseComponent {
 
     /**
      * 地图状态变化事件
+     *
+     * @param {{
+     *   nativeEvent: {
+     *     longitude: number,
+     *     latitude: number,
+     *     rotation: number,
+     *     zoomLevel: number,
+     *     tilt: number,
+     *   }
+     * }}
      */
     onStatusChange: PropTypes.func,
 
     /**
      * 地图状态变化完成事件
+     *
+     * @param {{
+     *   nativeEvent: {
+     *     longitude: number,
+     *     latitude: number,
+     *     longitudeDelta: number,
+     *     latitudeDelta: number,
+     *     rotation: number,
+     *     zoomLevel: number,
+     *     tilt: number,
+     *   }
+     * }}
      */
-    onStatusChangeComplete: PropTypes.func,
-    /**
-     * 地图完成移动， iOS
-     */
-    onMapMoveComplete: PropTypes.func,
-  }
+    onStatusChangeComplete: PropTypes.func
+  };
 
-  static defaultProps = {
-
-    coordinate: {
-      latitude: 39.9042,
-      longitude: 116.4074,
-    }
-  }
+  name = "AMapView";
 
   /**
    * 动画过渡到某个状态（坐标、缩放级别、倾斜度、旋转角度）
    */
-  animateTo(target: Target, duration?: number = 500) {
-    this._sendCommand('animateTo', [target, duration])
+  animateTo(target, duration = 500) {
+    this.sendCommand("animateTo", [target, duration]);
   }
 
   /**
@@ -221,9 +269,9 @@ export default class MapView extends BaseComponent {
    */
   setLockedPin(coordinate, image) {
     if (Platform.OS == 'ios') {
-      this._sendCommand('setLockedPin', [coordinate]);
+      this.sendCommand('setLockedPin', [coordinate]);
     } else {
-      this._sendCommand('setLockedPin', [coordinate, image]);
+      this.sendCommand('setLockedPin', [coordinate, image]);
     }
 
   }
@@ -235,22 +283,25 @@ export default class MapView extends BaseComponent {
    */
   setFitView(latLngList = []) {
     if (Platform.OS == 'ios') {
-      this._sendCommand('setFitView');
+      this.sendCommand('setFitView');
     } else {
       // Android端需要传入经纬度列表
-      this._sendCommand('setFitView', [latLngList]);
+      this.sendCommand('setFitView', [latLngList]);
     }
   }
 
-  removeAllMarker() {
-    this._sendCommand('removeAnnotations', []);
-  }
-
   render() {
-    return <AMapView {...this.props} />
+    const props = { ...this.props };
+    if (props.locationStyle) {
+      if (props.locationStyle.strokeColor) {
+        props.locationStyle.strokeColor = processColor(props.locationStyle.strokeColor);
+      }
+      if (props.locationStyle.fillColor) {
+        props.locationStyle.fillColor = processColor(props.locationStyle.fillColor);
+      }
+    }
+    return <AMapView {...props} />;
   }
-
-  name = 'AMapView'
 }
 
-const AMapView = requireNativeComponent('AMapView', MapView)
+const AMapView = requireNativeComponent("AMapView", MapView);

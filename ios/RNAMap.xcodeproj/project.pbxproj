@@ -7,32 +7,26 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		96D51C061FBAD470006FB5BB /* AMapViewManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 96D51BDE1FBAD46C006FB5BB /* AMapViewManager.m */; };
-		96D51C071FBAD470006FB5BB /* AMapMultiPointManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 96D51BE01FBAD46C006FB5BB /* AMapMultiPointManager.m */; };
-		96D51C081FBAD470006FB5BB /* AMapInfoWindowManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 96D51BE11FBAD46C006FB5BB /* AMapInfoWindowManager.m */; };
-		96D51C091FBAD470006FB5BB /* AMapModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 96D51BE41FBAD46C006FB5BB /* AMapModel.m */; };
-		96D51C0A1FBAD470006FB5BB /* AMapRide.m in Sources */ = {isa = PBXBuildFile; fileRef = 96D51BE51FBAD46C006FB5BB /* AMapRide.m */; };
-		96D51C0B1FBAD470006FB5BB /* AMapInfoWindow.m in Sources */ = {isa = PBXBuildFile; fileRef = 96D51BE71FBAD46C006FB5BB /* AMapInfoWindow.m */; };
-		96D51C0C1FBAD470006FB5BB /* AMapPolygonManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 96D51BE81FBAD46D006FB5BB /* AMapPolygonManager.m */; };
-		96D51C0D1FBAD470006FB5BB /* Coordinate.m in Sources */ = {isa = PBXBuildFile; fileRef = 96D51BEA1FBAD46D006FB5BB /* Coordinate.m */; };
-		96D51C0E1FBAD470006FB5BB /* AMapDriveManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 96D51BEC1FBAD46D006FB5BB /* AMapDriveManager.m */; };
-		96D51C0F1FBAD470006FB5BB /* AMapMarkerManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 96D51BEE1FBAD46D006FB5BB /* AMapMarkerManager.m */; };
-		96D51C101FBAD470006FB5BB /* AMapRideManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 96D51BF01FBAD46D006FB5BB /* AMapRideManager.m */; };
-		96D51C111FBAD470006FB5BB /* AMapCircle.m in Sources */ = {isa = PBXBuildFile; fileRef = 96D51BF11FBAD46D006FB5BB /* AMapCircle.m */; };
-		96D51C121FBAD470006FB5BB /* AMapWalk.m in Sources */ = {isa = PBXBuildFile; fileRef = 96D51BF41FBAD46D006FB5BB /* AMapWalk.m */; };
-		96D51C131FBAD470006FB5BB /* AMapCircleManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 96D51BF51FBAD46D006FB5BB /* AMapCircleManager.m */; };
-		96D51C141FBAD470006FB5BB /* AMapMultiPoint.m in Sources */ = {isa = PBXBuildFile; fileRef = 96D51BF61FBAD46D006FB5BB /* AMapMultiPoint.m */; };
-		96D51C151FBAD470006FB5BB /* AMapPolygon.m in Sources */ = {isa = PBXBuildFile; fileRef = 96D51BF71FBAD46E006FB5BB /* AMapPolygon.m */; };
-		96D51C161FBAD470006FB5BB /* AMapView.m in Sources */ = {isa = PBXBuildFile; fileRef = 96D51BF81FBAD46E006FB5BB /* AMapView.m */; };
-		96D51C171FBAD470006FB5BB /* POISearch.m in Sources */ = {isa = PBXBuildFile; fileRef = 96D51BF91FBAD46E006FB5BB /* POISearch.m */; };
-		96D51C181FBAD470006FB5BB /* AMapUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 96D51BFB1FBAD46E006FB5BB /* AMapUtils.m */; };
-		96D51C191FBAD470006FB5BB /* RNLocation.m in Sources */ = {isa = PBXBuildFile; fileRef = 96D51BFD1FBAD46E006FB5BB /* RNLocation.m */; };
-		96D51C1A1FBAD470006FB5BB /* AMapMarker.m in Sources */ = {isa = PBXBuildFile; fileRef = 96D51BFE1FBAD46F006FB5BB /* AMapMarker.m */; };
-		96D51C1B1FBAD470006FB5BB /* AMapDrive.m in Sources */ = {isa = PBXBuildFile; fileRef = 96D51BFF1FBAD46F006FB5BB /* AMapDrive.m */; };
-		96D51C1C1FBAD470006FB5BB /* AMapPolyline.m in Sources */ = {isa = PBXBuildFile; fileRef = 96D51C011FBAD46F006FB5BB /* AMapPolyline.m */; };
-		96D51C1D1FBAD470006FB5BB /* AMapWalkManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 96D51C021FBAD46F006FB5BB /* AMapWalkManager.m */; };
-		96D51C1E1FBAD470006FB5BB /* RCTConvert+AMapView.m in Sources */ = {isa = PBXBuildFile; fileRef = 96D51C031FBAD46F006FB5BB /* RCTConvert+AMapView.m */; };
-		96D51C1F1FBAD470006FB5BB /* AMapPolylineManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 96D51C051FBAD470006FB5BB /* AMapPolylineManager.m */; };
+		96E17F8B229424A700785AD6 /* AMapPolylineManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 96E17F6B229424A400785AD6 /* AMapPolylineManager.m */; };
+		96E17F8C229424A700785AD6 /* AMapCallout.m in Sources */ = {isa = PBXBuildFile; fileRef = 96E17F6C229424A400785AD6 /* AMapCallout.m */; };
+		96E17F8D229424A700785AD6 /* AMapMarkerManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 96E17F6E229424A500785AD6 /* AMapMarkerManager.m */; };
+		96E17F8E229424A700785AD6 /* AMapCircleManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 96E17F6F229424A500785AD6 /* AMapCircleManager.m */; };
+		96E17F8F229424A700785AD6 /* AMapOverlay.m in Sources */ = {isa = PBXBuildFile; fileRef = 96E17F71229424A500785AD6 /* AMapOverlay.m */; };
+		96E17F90229424A700785AD6 /* AMapCalloutManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 96E17F73229424A500785AD6 /* AMapCalloutManager.m */; };
+		96E17F91229424A700785AD6 /* AMapView.m in Sources */ = {isa = PBXBuildFile; fileRef = 96E17F74229424A500785AD6 /* AMapView.m */; };
+		96E17F92229424A700785AD6 /* AMapPolygon.m in Sources */ = {isa = PBXBuildFile; fileRef = 96E17F75229424A500785AD6 /* AMapPolygon.m */; };
+		96E17F93229424A700785AD6 /* AMapPolyline.m in Sources */ = {isa = PBXBuildFile; fileRef = 96E17F79229424A500785AD6 /* AMapPolyline.m */; };
+		96E17F94229424A700785AD6 /* AMapMarker.m in Sources */ = {isa = PBXBuildFile; fileRef = 96E17F7A229424A500785AD6 /* AMapMarker.m */; };
+		96E17F95229424A700785AD6 /* AMapCircle.m in Sources */ = {isa = PBXBuildFile; fileRef = 96E17F7B229424A500785AD6 /* AMapCircle.m */; };
+		96E17F96229424A700785AD6 /* AMapMultiPointManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 96E17F7D229424A600785AD6 /* AMapMultiPointManager.m */; };
+		96E17F97229424A700785AD6 /* RCTConvert+AMap3D.m in Sources */ = {isa = PBXBuildFile; fileRef = 96E17F7E229424A600785AD6 /* RCTConvert+AMap3D.m */; };
+		96E17F98229424A700785AD6 /* AMapMultiPoint.m in Sources */ = {isa = PBXBuildFile; fileRef = 96E17F80229424A600785AD6 /* AMapMultiPoint.m */; };
+		96E17F99229424A700785AD6 /* RNLocation.m in Sources */ = {isa = PBXBuildFile; fileRef = 96E17F82229424A600785AD6 /* RNLocation.m */; };
+		96E17F9A229424A700785AD6 /* POISearch.m in Sources */ = {isa = PBXBuildFile; fileRef = 96E17F84229424A600785AD6 /* POISearch.m */; };
+		96E17F9B229424A700785AD6 /* AMapPolygonManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 96E17F85229424A600785AD6 /* AMapPolygonManager.m */; };
+		96E17F9C229424A700785AD6 /* AMapViewManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 96E17F86229424A600785AD6 /* AMapViewManager.m */; };
+		96E17F9D229424A700785AD6 /* LocationStyle.m in Sources */ = {isa = PBXBuildFile; fileRef = 96E17F87229424A600785AD6 /* LocationStyle.m */; };
+		96E17F9E229424A700785AD6 /* Coordinate.m in Sources */ = {isa = PBXBuildFile; fileRef = 96E17F89229424A700785AD6 /* Coordinate.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -49,47 +43,38 @@
 
 /* Begin PBXFileReference section */
 		96D51BD11FBAD31D006FB5BB /* libRNAMap.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libRNAMap.a; sourceTree = BUILT_PRODUCTS_DIR; };
-		96D51BDD1FBAD46C006FB5BB /* AMapRide.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AMapRide.h; sourceTree = "<group>"; };
-		96D51BDE1FBAD46C006FB5BB /* AMapViewManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AMapViewManager.m; sourceTree = "<group>"; };
-		96D51BDF1FBAD46C006FB5BB /* AMapWalk.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AMapWalk.h; sourceTree = "<group>"; };
-		96D51BE01FBAD46C006FB5BB /* AMapMultiPointManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AMapMultiPointManager.m; sourceTree = "<group>"; };
-		96D51BE11FBAD46C006FB5BB /* AMapInfoWindowManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AMapInfoWindowManager.m; sourceTree = "<group>"; };
-		96D51BE21FBAD46C006FB5BB /* AMapModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AMapModel.h; sourceTree = "<group>"; };
-		96D51BE31FBAD46C006FB5BB /* AMapInfoWindow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AMapInfoWindow.h; sourceTree = "<group>"; };
-		96D51BE41FBAD46C006FB5BB /* AMapModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AMapModel.m; sourceTree = "<group>"; };
-		96D51BE51FBAD46C006FB5BB /* AMapRide.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AMapRide.m; sourceTree = "<group>"; };
-		96D51BE61FBAD46C006FB5BB /* Coordinate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Coordinate.h; sourceTree = "<group>"; };
-		96D51BE71FBAD46C006FB5BB /* AMapInfoWindow.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AMapInfoWindow.m; sourceTree = "<group>"; };
-		96D51BE81FBAD46D006FB5BB /* AMapPolygonManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AMapPolygonManager.m; sourceTree = "<group>"; };
-		96D51BE91FBAD46D006FB5BB /* POISearch.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = POISearch.h; sourceTree = "<group>"; };
-		96D51BEA1FBAD46D006FB5BB /* Coordinate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Coordinate.m; sourceTree = "<group>"; };
-		96D51BEB1FBAD46D006FB5BB /* AMapMultiPoint.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AMapMultiPoint.h; sourceTree = "<group>"; };
-		96D51BEC1FBAD46D006FB5BB /* AMapDriveManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AMapDriveManager.m; sourceTree = "<group>"; };
-		96D51BED1FBAD46D006FB5BB /* AMapPolygon.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AMapPolygon.h; sourceTree = "<group>"; };
-		96D51BEE1FBAD46D006FB5BB /* AMapMarkerManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AMapMarkerManager.m; sourceTree = "<group>"; };
-		96D51BEF1FBAD46D006FB5BB /* AMapNavigationManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AMapNavigationManager.h; sourceTree = "<group>"; };
-		96D51BF01FBAD46D006FB5BB /* AMapRideManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AMapRideManager.m; sourceTree = "<group>"; };
-		96D51BF11FBAD46D006FB5BB /* AMapCircle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AMapCircle.m; sourceTree = "<group>"; };
-		96D51BF21FBAD46D006FB5BB /* AMapMarker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AMapMarker.h; sourceTree = "<group>"; };
-		96D51BF31FBAD46D006FB5BB /* AMapDrive.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AMapDrive.h; sourceTree = "<group>"; };
-		96D51BF41FBAD46D006FB5BB /* AMapWalk.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AMapWalk.m; sourceTree = "<group>"; };
-		96D51BF51FBAD46D006FB5BB /* AMapCircleManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AMapCircleManager.m; sourceTree = "<group>"; };
-		96D51BF61FBAD46D006FB5BB /* AMapMultiPoint.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AMapMultiPoint.m; sourceTree = "<group>"; };
-		96D51BF71FBAD46E006FB5BB /* AMapPolygon.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AMapPolygon.m; sourceTree = "<group>"; };
-		96D51BF81FBAD46E006FB5BB /* AMapView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AMapView.m; sourceTree = "<group>"; };
-		96D51BF91FBAD46E006FB5BB /* POISearch.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = POISearch.m; sourceTree = "<group>"; };
-		96D51BFA1FBAD46E006FB5BB /* AMapPolyline.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AMapPolyline.h; sourceTree = "<group>"; };
-		96D51BFB1FBAD46E006FB5BB /* AMapUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AMapUtils.m; sourceTree = "<group>"; };
-		96D51BFC1FBAD46E006FB5BB /* AMapView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AMapView.h; sourceTree = "<group>"; };
-		96D51BFD1FBAD46E006FB5BB /* RNLocation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RNLocation.m; sourceTree = "<group>"; };
-		96D51BFE1FBAD46F006FB5BB /* AMapMarker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AMapMarker.m; sourceTree = "<group>"; };
-		96D51BFF1FBAD46F006FB5BB /* AMapDrive.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AMapDrive.m; sourceTree = "<group>"; };
-		96D51C001FBAD46F006FB5BB /* AMapCircle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AMapCircle.h; sourceTree = "<group>"; };
-		96D51C011FBAD46F006FB5BB /* AMapPolyline.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AMapPolyline.m; sourceTree = "<group>"; };
-		96D51C021FBAD46F006FB5BB /* AMapWalkManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AMapWalkManager.m; sourceTree = "<group>"; };
-		96D51C031FBAD46F006FB5BB /* RCTConvert+AMapView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "RCTConvert+AMapView.m"; sourceTree = "<group>"; };
-		96D51C041FBAD46F006FB5BB /* RNLocation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RNLocation.h; sourceTree = "<group>"; };
-		96D51C051FBAD470006FB5BB /* AMapPolylineManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AMapPolylineManager.m; sourceTree = "<group>"; };
+		96E17F6B229424A400785AD6 /* AMapPolylineManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AMapPolylineManager.m; sourceTree = "<group>"; };
+		96E17F6C229424A400785AD6 /* AMapCallout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AMapCallout.m; sourceTree = "<group>"; };
+		96E17F6D229424A400785AD6 /* AMapPolygon.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AMapPolygon.h; sourceTree = "<group>"; };
+		96E17F6E229424A500785AD6 /* AMapMarkerManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AMapMarkerManager.m; sourceTree = "<group>"; };
+		96E17F6F229424A500785AD6 /* AMapCircleManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AMapCircleManager.m; sourceTree = "<group>"; };
+		96E17F70229424A500785AD6 /* AMapMultiPoint.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AMapMultiPoint.h; sourceTree = "<group>"; };
+		96E17F71229424A500785AD6 /* AMapOverlay.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AMapOverlay.m; sourceTree = "<group>"; };
+		96E17F72229424A500785AD6 /* AMapCircle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AMapCircle.h; sourceTree = "<group>"; };
+		96E17F73229424A500785AD6 /* AMapCalloutManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AMapCalloutManager.m; sourceTree = "<group>"; };
+		96E17F74229424A500785AD6 /* AMapView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AMapView.m; sourceTree = "<group>"; };
+		96E17F75229424A500785AD6 /* AMapPolygon.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AMapPolygon.m; sourceTree = "<group>"; };
+		96E17F76229424A500785AD6 /* LocationStyle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LocationStyle.h; sourceTree = "<group>"; };
+		96E17F77229424A500785AD6 /* AMapCallout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AMapCallout.h; sourceTree = "<group>"; };
+		96E17F78229424A500785AD6 /* AMapOverlay.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AMapOverlay.h; sourceTree = "<group>"; };
+		96E17F79229424A500785AD6 /* AMapPolyline.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AMapPolyline.m; sourceTree = "<group>"; };
+		96E17F7A229424A500785AD6 /* AMapMarker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AMapMarker.m; sourceTree = "<group>"; };
+		96E17F7B229424A500785AD6 /* AMapCircle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AMapCircle.m; sourceTree = "<group>"; };
+		96E17F7C229424A600785AD6 /* AMapView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AMapView.h; sourceTree = "<group>"; };
+		96E17F7D229424A600785AD6 /* AMapMultiPointManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AMapMultiPointManager.m; sourceTree = "<group>"; };
+		96E17F7E229424A600785AD6 /* RCTConvert+AMap3D.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "RCTConvert+AMap3D.m"; sourceTree = "<group>"; };
+		96E17F7F229424A600785AD6 /* AMapPolyline.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AMapPolyline.h; sourceTree = "<group>"; };
+		96E17F80229424A600785AD6 /* AMapMultiPoint.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AMapMultiPoint.m; sourceTree = "<group>"; };
+		96E17F81229424A600785AD6 /* RNLocation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RNLocation.h; sourceTree = "<group>"; };
+		96E17F82229424A600785AD6 /* RNLocation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RNLocation.m; sourceTree = "<group>"; };
+		96E17F83229424A600785AD6 /* AMapMarker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AMapMarker.h; sourceTree = "<group>"; };
+		96E17F84229424A600785AD6 /* POISearch.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = POISearch.m; sourceTree = "<group>"; };
+		96E17F85229424A600785AD6 /* AMapPolygonManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AMapPolygonManager.m; sourceTree = "<group>"; };
+		96E17F86229424A600785AD6 /* AMapViewManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AMapViewManager.m; sourceTree = "<group>"; };
+		96E17F87229424A600785AD6 /* LocationStyle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LocationStyle.m; sourceTree = "<group>"; };
+		96E17F88229424A600785AD6 /* Coordinate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Coordinate.h; sourceTree = "<group>"; };
+		96E17F89229424A700785AD6 /* Coordinate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Coordinate.m; sourceTree = "<group>"; };
+		96E17F8A229424A700785AD6 /* POISearch.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = POISearch.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -122,47 +107,38 @@
 		96D51BD31FBAD31D006FB5BB /* RNAMap */ = {
 			isa = PBXGroup;
 			children = (
-				96D51C001FBAD46F006FB5BB /* AMapCircle.h */,
-				96D51BF11FBAD46D006FB5BB /* AMapCircle.m */,
-				96D51BF51FBAD46D006FB5BB /* AMapCircleManager.m */,
-				96D51BF31FBAD46D006FB5BB /* AMapDrive.h */,
-				96D51BFF1FBAD46F006FB5BB /* AMapDrive.m */,
-				96D51BEC1FBAD46D006FB5BB /* AMapDriveManager.m */,
-				96D51BE31FBAD46C006FB5BB /* AMapInfoWindow.h */,
-				96D51BE71FBAD46C006FB5BB /* AMapInfoWindow.m */,
-				96D51BE11FBAD46C006FB5BB /* AMapInfoWindowManager.m */,
-				96D51BF21FBAD46D006FB5BB /* AMapMarker.h */,
-				96D51BFE1FBAD46F006FB5BB /* AMapMarker.m */,
-				96D51BEE1FBAD46D006FB5BB /* AMapMarkerManager.m */,
-				96D51BE21FBAD46C006FB5BB /* AMapModel.h */,
-				96D51BE41FBAD46C006FB5BB /* AMapModel.m */,
-				96D51BEB1FBAD46D006FB5BB /* AMapMultiPoint.h */,
-				96D51BF61FBAD46D006FB5BB /* AMapMultiPoint.m */,
-				96D51BE01FBAD46C006FB5BB /* AMapMultiPointManager.m */,
-				96D51BEF1FBAD46D006FB5BB /* AMapNavigationManager.h */,
-				96D51BED1FBAD46D006FB5BB /* AMapPolygon.h */,
-				96D51BF71FBAD46E006FB5BB /* AMapPolygon.m */,
-				96D51BE81FBAD46D006FB5BB /* AMapPolygonManager.m */,
-				96D51BFA1FBAD46E006FB5BB /* AMapPolyline.h */,
-				96D51C011FBAD46F006FB5BB /* AMapPolyline.m */,
-				96D51C051FBAD470006FB5BB /* AMapPolylineManager.m */,
-				96D51BDD1FBAD46C006FB5BB /* AMapRide.h */,
-				96D51BE51FBAD46C006FB5BB /* AMapRide.m */,
-				96D51BF01FBAD46D006FB5BB /* AMapRideManager.m */,
-				96D51BFB1FBAD46E006FB5BB /* AMapUtils.m */,
-				96D51BFC1FBAD46E006FB5BB /* AMapView.h */,
-				96D51BF81FBAD46E006FB5BB /* AMapView.m */,
-				96D51BDE1FBAD46C006FB5BB /* AMapViewManager.m */,
-				96D51BDF1FBAD46C006FB5BB /* AMapWalk.h */,
-				96D51BF41FBAD46D006FB5BB /* AMapWalk.m */,
-				96D51C021FBAD46F006FB5BB /* AMapWalkManager.m */,
-				96D51BE61FBAD46C006FB5BB /* Coordinate.h */,
-				96D51BEA1FBAD46D006FB5BB /* Coordinate.m */,
-				96D51BE91FBAD46D006FB5BB /* POISearch.h */,
-				96D51BF91FBAD46E006FB5BB /* POISearch.m */,
-				96D51C031FBAD46F006FB5BB /* RCTConvert+AMapView.m */,
-				96D51C041FBAD46F006FB5BB /* RNLocation.h */,
-				96D51BFD1FBAD46E006FB5BB /* RNLocation.m */,
+				96E17F77229424A500785AD6 /* AMapCallout.h */,
+				96E17F6C229424A400785AD6 /* AMapCallout.m */,
+				96E17F73229424A500785AD6 /* AMapCalloutManager.m */,
+				96E17F72229424A500785AD6 /* AMapCircle.h */,
+				96E17F7B229424A500785AD6 /* AMapCircle.m */,
+				96E17F6F229424A500785AD6 /* AMapCircleManager.m */,
+				96E17F83229424A600785AD6 /* AMapMarker.h */,
+				96E17F7A229424A500785AD6 /* AMapMarker.m */,
+				96E17F6E229424A500785AD6 /* AMapMarkerManager.m */,
+				96E17F70229424A500785AD6 /* AMapMultiPoint.h */,
+				96E17F80229424A600785AD6 /* AMapMultiPoint.m */,
+				96E17F7D229424A600785AD6 /* AMapMultiPointManager.m */,
+				96E17F78229424A500785AD6 /* AMapOverlay.h */,
+				96E17F71229424A500785AD6 /* AMapOverlay.m */,
+				96E17F6D229424A400785AD6 /* AMapPolygon.h */,
+				96E17F75229424A500785AD6 /* AMapPolygon.m */,
+				96E17F85229424A600785AD6 /* AMapPolygonManager.m */,
+				96E17F7F229424A600785AD6 /* AMapPolyline.h */,
+				96E17F79229424A500785AD6 /* AMapPolyline.m */,
+				96E17F6B229424A400785AD6 /* AMapPolylineManager.m */,
+				96E17F7C229424A600785AD6 /* AMapView.h */,
+				96E17F74229424A500785AD6 /* AMapView.m */,
+				96E17F86229424A600785AD6 /* AMapViewManager.m */,
+				96E17F88229424A600785AD6 /* Coordinate.h */,
+				96E17F89229424A700785AD6 /* Coordinate.m */,
+				96E17F76229424A500785AD6 /* LocationStyle.h */,
+				96E17F87229424A600785AD6 /* LocationStyle.m */,
+				96E17F8A229424A700785AD6 /* POISearch.h */,
+				96E17F84229424A600785AD6 /* POISearch.m */,
+				96E17F7E229424A600785AD6 /* RCTConvert+AMap3D.m */,
+				96E17F81229424A600785AD6 /* RNLocation.h */,
+				96E17F82229424A600785AD6 /* RNLocation.m */,
 			);
 			path = RNAMap;
 			sourceTree = "<group>";
@@ -224,32 +200,26 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				96D51C191FBAD470006FB5BB /* RNLocation.m in Sources */,
-				96D51C111FBAD470006FB5BB /* AMapCircle.m in Sources */,
-				96D51C0F1FBAD470006FB5BB /* AMapMarkerManager.m in Sources */,
-				96D51C081FBAD470006FB5BB /* AMapInfoWindowManager.m in Sources */,
-				96D51C0A1FBAD470006FB5BB /* AMapRide.m in Sources */,
-				96D51C131FBAD470006FB5BB /* AMapCircleManager.m in Sources */,
-				96D51C1C1FBAD470006FB5BB /* AMapPolyline.m in Sources */,
-				96D51C0B1FBAD470006FB5BB /* AMapInfoWindow.m in Sources */,
-				96D51C061FBAD470006FB5BB /* AMapViewManager.m in Sources */,
-				96D51C121FBAD470006FB5BB /* AMapWalk.m in Sources */,
-				96D51C181FBAD470006FB5BB /* AMapUtils.m in Sources */,
-				96D51C091FBAD470006FB5BB /* AMapModel.m in Sources */,
-				96D51C1B1FBAD470006FB5BB /* AMapDrive.m in Sources */,
-				96D51C1D1FBAD470006FB5BB /* AMapWalkManager.m in Sources */,
-				96D51C0E1FBAD470006FB5BB /* AMapDriveManager.m in Sources */,
-				96D51C161FBAD470006FB5BB /* AMapView.m in Sources */,
-				96D51C1E1FBAD470006FB5BB /* RCTConvert+AMapView.m in Sources */,
-				96D51C071FBAD470006FB5BB /* AMapMultiPointManager.m in Sources */,
-				96D51C0C1FBAD470006FB5BB /* AMapPolygonManager.m in Sources */,
-				96D51C0D1FBAD470006FB5BB /* Coordinate.m in Sources */,
-				96D51C1F1FBAD470006FB5BB /* AMapPolylineManager.m in Sources */,
-				96D51C101FBAD470006FB5BB /* AMapRideManager.m in Sources */,
-				96D51C141FBAD470006FB5BB /* AMapMultiPoint.m in Sources */,
-				96D51C171FBAD470006FB5BB /* POISearch.m in Sources */,
-				96D51C1A1FBAD470006FB5BB /* AMapMarker.m in Sources */,
-				96D51C151FBAD470006FB5BB /* AMapPolygon.m in Sources */,
+				96E17F99229424A700785AD6 /* RNLocation.m in Sources */,
+				96E17F8B229424A700785AD6 /* AMapPolylineManager.m in Sources */,
+				96E17F96229424A700785AD6 /* AMapMultiPointManager.m in Sources */,
+				96E17F9E229424A700785AD6 /* Coordinate.m in Sources */,
+				96E17F97229424A700785AD6 /* RCTConvert+AMap3D.m in Sources */,
+				96E17F9A229424A700785AD6 /* POISearch.m in Sources */,
+				96E17F93229424A700785AD6 /* AMapPolyline.m in Sources */,
+				96E17F95229424A700785AD6 /* AMapCircle.m in Sources */,
+				96E17F9C229424A700785AD6 /* AMapViewManager.m in Sources */,
+				96E17F94229424A700785AD6 /* AMapMarker.m in Sources */,
+				96E17F8C229424A700785AD6 /* AMapCallout.m in Sources */,
+				96E17F9D229424A700785AD6 /* LocationStyle.m in Sources */,
+				96E17F98229424A700785AD6 /* AMapMultiPoint.m in Sources */,
+				96E17F8E229424A700785AD6 /* AMapCircleManager.m in Sources */,
+				96E17F91229424A700785AD6 /* AMapView.m in Sources */,
+				96E17F90229424A700785AD6 /* AMapCalloutManager.m in Sources */,
+				96E17F8F229424A700785AD6 /* AMapOverlay.m in Sources */,
+				96E17F8D229424A700785AD6 /* AMapMarkerManager.m in Sources */,
+				96E17F9B229424A700785AD6 /* AMapPolygonManager.m in Sources */,
+				96E17F92229424A700785AD6 /* AMapPolygon.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

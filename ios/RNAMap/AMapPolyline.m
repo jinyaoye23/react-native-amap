@@ -27,7 +27,7 @@
     for (NSUInteger i = 0; i < coordinates.count; i++) {
         coords[i] = coordinates[i].coordinate;
     }
-    
+
     [_polyline setPolylineWithCoordinates:coords count:coordinates.count];
 }
 

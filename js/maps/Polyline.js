@@ -1,14 +1,21 @@
-import React, {PureComponent} from 'react'
-import PropTypes from 'prop-types'
-import {PixelRatio, Platform, processColor, requireNativeComponent, ViewPropTypes} from 'react-native'
-import {LatLng} from '../PropTypes'
+// @flow
+import React, { PureComponent } from "react";
+import PropTypes from "prop-types";
+import {
+  ColorPropType,
+  Platform,
+  processColor,
+  requireNativeComponent,
+  ViewPropTypes
+} from "react-native";
+import { LatLng } from "../PropTypes";
 
 export default class Polyline extends PureComponent {
   static propTypes = {
     ...ViewPropTypes,
 
     /**
-     * 节点
+     * 节点坐标
      */
     coordinates: PropTypes.arrayOf(LatLng).isRequired,
 
@@ -20,7 +27,7 @@ export default class Polyline extends PureComponent {
     /**
      * 线段颜色
      */
-    color: PropTypes.string,
+    color: ColorPropType,
 
     /**
      * 层级
@@ -30,10 +37,7 @@ export default class Polyline extends PureComponent {
     /**
      * 多段颜色
      */
-    colors: PropTypes.oneOfType([
-      PropTypes.arrayOf(PropTypes.number),
-      PropTypes.arrayOf(PropTypes.string),
-    ]),
+    colors: PropTypes.arrayOf(ColorPropType),
 
     /**
      * 是否使用颜色渐变
@@ -53,25 +57,24 @@ export default class Polyline extends PureComponent {
     /**
      * 点击事件
      */
-    onPress: PropTypes.func,
-  }
+    onPress: PropTypes.func
+  };
 
   static defaultProps = {
-    colors: [],
-  }
+    colors: []
+  };
 
   render() {
     const props = {
       ...this.props,
       ...Platform.select({
         android: {
-          width: PixelRatio.getPixelSizeForLayoutSize(this.props.width),
-          colors: this.props.colors.map(processColor),
-        },
-      }),
-    }
-    return <AMapPolyline {...props}/>
+          colors: this.props.colors.map(processColor)
+        }
+      })
+    };
+    return <AMapPolyline {...props} />;
   }
 }
 
-const AMapPolyline = requireNativeComponent('AMapPolyline', Polyline)
+const AMapPolyline = requireNativeComponent("AMapPolyline", Polyline);
