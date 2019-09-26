@@ -16,4 +16,7 @@ Pod::Spec.new do |s|
   s.source_files  = "ios/**/*.{h,m}"
 
   s.dependency 'React'
+  s.dependency 'AMapSearch-NO-IDFA', '6.1.1'  #地图SDK搜索功能
+  s.dependency 'AMapLocation-NO-IDFA', '2.6.0'  #定位SDK
+  s.dependency 'AMapNavi-NO-IDFA', '6.2.0'  #导航SDK
 end
